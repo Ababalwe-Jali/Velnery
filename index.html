@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Woolworths (demo) – Quality food, fashion &amp; home</title>
+  <meta name="description" content="A demo multi-page retail site inspired by the Woolworths design system.">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="./CSS/intro.css">
+  <link rel="stylesheet" href="../CSS/auth.css">
+  <link rel="stylesheet" href="../CSS/address.css">
+  <script src="../JavaScript/auth.js"></script>
+  <script src="./JavaScript/intro.js"></script>
+  <script src="../JavaScript/address.js"></script>
+</head>
+<body data-root="" data-page="home">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="hero" style="background-image: url('Assets/img/hero.jpg'); background-size: cover; background-position: center;">
+      <div class="container">
+        
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="display-md">Shop by category</h2>
+          <a href="HTML/shop.html" class="body-md">View all &rarr;</a>
+        </div>
+        <div class="grid-5">
+          <a class="tile tile-1" style="background-image:url('https://images.unsplash.com/photo-1591586116988-62fe65164f8d?auto=format&fit=crop&w=700&q=80')" href="HTML/shop.html?cat=Food"><div>Food<small>Fresh, pantry &amp; drinks</small></div></a>
+          <a class="tile tile-2" style="background-image:url('https://images.unsplash.com/photo-1603400521630-9f2de124b33b?auto=format&fit=crop&w=700&q=80')" href="HTML/shop.html?cat=Clothing"><div>Clothing<small>Women, men &amp; kids</small></div></a>
+          <a class="tile tile-3" style="background-image:url('https://images.unsplash.com/photo-1774927475366-7c4d31588d98?auto=format&fit=crop&w=700&q=80')" href="HTML/shop.html?cat=Home"><div>Home<small>Bedding, kitchen &amp; decor</small></div></a>
+          <a class="tile tile-4" style="background-image:url('https://images.unsplash.com/photo-1762651356493-c492ca111a07?auto=format&fit=crop&w=700&q=80')" href="HTML/shop.html?cat=Beauty"><div>Beauty<small>Skin, hair &amp; body</small></div></a>
+          <a class="tile tile-5" style="background-image:url('https://images.unsplash.com/photo-1760565030786-91526dff426c?auto=format&fit=crop&w=700&q=80')" href="HTML/deals.html"><div>Deals<small>Save every week</small></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="display-md">This week's picks</h2>
+          <a href="HTML/deals.html" class="body-md">See all deals &rarr;</a>
+        </div>
+        <!-- React renders the featured products here -->
+        <div id="root" data-view="featured"><p class="body-md muted">Loading products&hellip;</p></div>
+      </div>
+    </section>
+
+    <!-- Two huge split sections: Steak + Seafood -->
+    <section class="split-promo" aria-label="Butchery and seafood">
+      <div class="split-panel split-steak">
+        <h2 class="display-lg">Steak</h2>
+        <a class="btn btn-promo" href="HTML/shop.html?cat=Food">Shop now</a>
+      </div>
+
+      <div class="split-panel split-seafood">
+        <h2 class="display-lg">Fresh <br>Seafood</h2>
+        <a class="btn btn-promo" href="HTML/shop.html?cat=Food">Shop now</a>
+      </div>
+    </section>
+
+    <!-- Marketing hero: full-bleed background image -->
+    <section class="mega-promo" aria-labelledby="mega-title">
+      <div class="mega-promo-content container">
+        <span class="badge badge-yellow">Black Friday</span>
+        <h2 class="display-lg" id="mega-title">Everything you love.<br>Up to 40% off.</h2>
+        <p class="body-lg">Fresh food, fashion and homeware, with savings across the whole store until Monday.</p>
+        <div class="hero-actions">
+          <a class="btn btn-promo" href="HTML/deals.html">Shop Black Friday</a>
+          <a class="btn btn-secondary" href="HTML/shop.html">Browse everything</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured: one large lead story + two supporting stories + a row of collections -->
+    <section class="section featured" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="display-md" id="featured-title">Featured</h2>
+          <a href="HTML/shop.html" class="body-md">Shop everything &rarr;</a>
+        </div>
+
+        <div class="featured-grid">
+          <!-- Lead story (large) -->
+          <a class="feature feature-lead" href="HTML/shop.html?cat=Food"
+            style="--img: url('../Assets/img/fresh-seasonal.jpg')">
+            <div class="feature-text">
+              <span class="badge badge-yellow">New in</span>
+              <h3>Fresh &amp; seasonal</h3>
+              <p>Summer produce, bakery favourites and pantry staples, picked for the season.</p>
+              <span class="feature-cta">Shop food &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Supporting stories -->
+          <a class="feature" href="HTML/shop.html?cat=Clothing"
+            style="--img: url('../Assets/img/fashion.webp')">
+            <div class="feature-text">
+              <span class="badge badge-black">Fashion</span>
+              <h3>Everyday essentials</h3>
+              <span class="feature-cta">Shop clothing &rarr;</span>
+            </div>
+          </a>
+
+          <a class="feature" href="HTML/shop.html?cat=Home"
+            style="--img: url('../Assets/img/home.webp')">
+            <div class="feature-text">
+              <span class="badge badge-red">Save 20%</span>
+              <h3>Refresh your home</h3>
+              <span class="feature-cta">Shop home &rarr;</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Collections strip -->
+        <ul class="collections">
+          <li><a href="HTML/shop.html?cat=Beauty"><strong>Beauty</strong><span>Skin, hair &amp; body</span></a></li>
+          <li><a href="HTML/deals.html"><strong>Deals</strong><span>Reduced this week</span></a></li>
+          <li><a href="HTML/stores.html"><strong>Stores</strong><span>Find one near you</span></a></li>
+          <li><a href="HTML/contact.html"><strong>Help</strong><span>Talk to our team</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Two huge split sections: headline + button only -->
+    <section class="split-promo" aria-label="Featured departments">
+      <div class="split-panel split-wine">
+        <h2 class="display-lg">Wines</h2>
+        <a class="btn btn-promo" href="HTML/shop.html?cat=Food">Shop now</a>
+      </div>
+
+      <div class="split-panel split-other">
+        <h2 class="display-lg">Home &amp; <br>Living</h2>
+        <a class="btn btn-promo" href="HTML/shop.html?cat=Home">Shop now</a>
+      </div>
+    </section>
+
+    <section class="promo-band" style="background-color: #000;">
+      <div class="container">
+        <div>
+          <h2 class="display-md" style="color: #fff;">Find a store near you</h2>
+          <p class="body-md" style="margin:8px 0 0; color: #fff;">Search our demo store directory by town or province.</p>
+        </div>
+        <a class="btn" href="HTML/stores.html" style="background-color: #fff;color: #000;">Store finder</a>
+      </div>
+    </section>
+
+    <!-- Four vertical cards (click to jump to the matching info block below) -->
+    <section class="section" aria-labelledby="ways-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="display-md" id="ways-title">Ways to pay &amp; save</h2>
+        </div>
+
+        <div class="vcards">
+          <a class="vcard vcard-payflex" href="#payflex">
+            <div class="vcard-text">
+              <h3>Payflex</h3>
+              <span class="feature-cta">Learn more &darr;</span>
+            </div>
+          </a>
+          <a class="vcard vcard-rewards" href="#rewards">
+            <div class="vcard-text">
+              <h3>Rewards</h3>
+              <span class="feature-cta">Learn more &darr;</span>
+            </div>
+          </a>
+          <a class="vcard vcard-gift" href="#giftcards">
+            <div class="vcard-text">
+              <h3>Gift Cards</h3>
+              <span class="feature-cta">Learn more &darr;</span>
+            </div>
+          </a>
+          <a class="vcard vcard-delivery" href="#delivery">
+            <div class="vcard-text">
+              <h3>Delivery</h3>
+              <span class="feature-cta">Learn more &darr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info blocks the cards link to -->
+    <section class="section section-alt info-sections" aria-label="Payment and service information">
+      <div class="container">
+
+        <article class="info-panel" id="payflex">
+          <span class="badge badge-yellow">Payflex</span>
+          <h3 class="display-md">Buy now, pay later with Payflex</h3>
+          <p class="body-lg muted">Split your purchase into smaller instalments instead of paying it all at once.</p>
+          <ul>
+            <li>Choose Payflex at checkout</li>
+            <li>Pay in 4 instalments</li>
+            <li>No interest when you pay on time</li>
+          </ul>
+          <a class="btn" href="HTML/shop.html">Start shopping</a>
+          <a class="back-top" href="#ways-title">&uarr; Back to top</a>
+        </article>
+
+        <article class="info-panel" id="rewards">
+          <span class="badge badge-black">Rewards</span>
+          <h3 class="display-md">Earn rewards on every shop</h3>
+          <p class="body-lg muted">Join our rewards programme and get savings that are made for you.</p>
+          <ul>
+            <li>Sign up in store or online</li>
+            <li>Earn on every purchase</li>
+            <li>Get member-only deals</li>
+          </ul>
+          <a class="btn" href="HTML/deals.html">See member deals</a>
+          <a class="back-top" href="#ways-title">&uarr; Back to top</a>
+        </article>
+
+        <article class="info-panel" id="giftcards">
+          <span class="badge badge-black">Gift Cards</span>
+          <h3 class="display-md">The gift that always fits</h3>
+          <p class="body-lg muted">Send a gift card for any occasion, in store or online.</p>
+          <ul>
+            <li>Choose any amount</li>
+            <li>Send by email or collect in store</li>
+            <li>Use on food, fashion and home</li>
+          </ul>
+          <a class="btn" href="HTML/contact.html">Ask about gift cards</a>
+          <a class="back-top" href="#ways-title">&uarr; Back to top</a>
+        </article>
+
+        <article class="info-panel" id="delivery">
+          <span class="badge badge-red">Delivery</span>
+          <h3 class="display-md">Delivered to your door</h3>
+          <p class="body-lg muted">Free delivery on orders over R600. Track your order from cart to doorstep.</p>
+          <ul>
+            <li>Choose a delivery slot at checkout</li>
+            <li>Free over R600, otherwise R60</li>
+            <li>Check the cart for how close you are</li>
+          </ul>
+          <a class="btn" href="HTML/cart.html">Go to cart</a>
+          <a class="back-top" href="#ways-title">&uarr; Back to top</a>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Cookie consent popup (home page only) -->
+  <div class="cookie-overlay" id="cookie-modal" hidden>
+    <div class="cookie-dialog" role="dialog" aria-modal="true"
+        aria-labelledby="cookie-title" aria-describedby="cookie-desc">
+
+      <!-- Left: image, full height of the dialog -->
+      <div class="cookie-image" aria-hidden="true"></div>
+
+      <!-- Right: content -->
+      <div class="cookie-content">
+        <span class="badge badge-yellow">Cookies</span>
+        <h2 class="display-md" id="cookie-title">We value your privacy</h2>
+        <p class="body-md muted" id="cookie-desc">
+          We use cookies to make the site work, understand how it's used and show you relevant offers.
+          You can accept all cookies or decline the optional ones.
+        </p>
+        <ul class="cookie-list">
+          <li><strong>Essential</strong> Keep your cart and settings working. Always on.</li>
+          <li><strong>Analytics</strong> Help us improve the site.</li>
+          <li><strong>Marketing</strong> Show offers that suit you.</li>
+        </ul>
+        <p class="body-sm muted">Read our <a href="HTML/about.html">cookie policy</a> for details.</p>
+
+        <div class="cookie-actions">
+          <button class="btn" type="button" data-cookie="accepted" id="cookie-accept">Accept</button>
+          <button class="btn btn-secondary" type="button" data-cookie="declined">Decline</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="JavaScript/main.js"></script>
+  <script src="JavaScript/cookies.js"></script>
+  <script src="JavaScript/products.js"></script>
+  <script src="JavaScript/app.js"></script>
+</body>
+</html>

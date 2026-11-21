@@ -1,0 +1,125 @@
+/* VELNERY sign in / sign up dialog. Flat, sharp corners, no shadows. */
+html.au-lock, html.au-lock body { overflow: hidden; }
+
+.au-root { position: fixed; inset: 0; z-index: 9000; display: grid; place-items: center; padding: 16px; }
+.au-root[hidden] { display: none; }
+
+.au-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.6); opacity: 0; transition: opacity .35s ease; backdrop-filter: blur(0); }
+.au-root.is-open .au-backdrop { opacity: 1; backdrop-filter: blur(4px); }
+
+/* Dialog */
+.au-dialog {
+  position: relative; width: min(980px, 100%); max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow: hidden;
+  display: grid; grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr); background: #fff; color: var(--ink, #000); outline: none;
+  opacity: 0; transform: translateY(28px) scale(.97);
+  transition: opacity .4s ease, transform .55s cubic-bezier(.2, .9, .2, 1);
+}
+.au-root.is-open .au-dialog { opacity: 1; transform: none; }
+.au-root.is-closing .au-dialog { opacity: 0; transform: translateY(16px) scale(.98); transition-duration: .3s; transition-timing-function: ease-in; }
+@media (min-width: 800px) { .au-dialog { grid-template-columns: 1fr 1.1fr; min-height: min(640px, calc(100vh - 32px)); } }
+
+/* Left image: full dialog height. Put your own photo at Assets/img/auth.jpg */
+.au-image {
+  position: relative; display: none; color: #fff; background-color: #333;
+  background-image: url("../Assets/img/auth.jpg"), url("https://images.unsplash.com/photo-1603400521630-9f2de124b33b?auto=format&fit=crop&w=1000&q=80");
+  background-size: cover; background-position: center;
+}
+@media (min-width: 800px) { .au-image { display: flex; align-items: flex-end; } }
+.au-image::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,.05) 30%, rgba(0,0,0,.75) 100%); }
+.au-image-copy { position: relative; padding: 40px; }
+.au-brand { display: block; font-family: "Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif; font-size: 34px; letter-spacing: .16em; margin-bottom: 8px; }
+.au-image-copy p { margin: 0; font-size: 15px; color: #ddd; }
+
+/* Right panel */
+.au-panel { min-height: 0; max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); padding: 56px 40px 36px; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; display: block; }
+@media (max-width: 520px) { .au-panel { padding: 56px 22px 28px; } }
+.au-close { position: absolute; top: 12px; right: 12px; z-index: 3; width: 40px; height: 40px; display: grid; place-items: center; background: #fff; border: 0; cursor: pointer; color: #000; }
+.au-close svg, .au-eye svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.au-close:hover { background: #eee; }
+
+/* Tabs with sliding underline */
+.au-tabs { position: relative; display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--hairline, #dcdcdc); margin-bottom: 28px; }
+.au-tabs[hidden] { display: none; }
+.au-tabs button { background: none; border: 0; padding: 12px 0; font: inherit; font-weight: 700; color: #777; cursor: pointer; transition: color .2s; }
+.au-tabs button[aria-selected="true"] { color: #000; }
+.au-tabs::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 50%; height: 2px; background: #000; transition: transform .45s cubic-bezier(.2, .9, .2, 1); }
+.au-tabs[data-on="signup"]::after { transform: translateX(100%); }
+
+/* Views */
+.au-view[hidden] { display: none; }
+.au-view { display: grid; gap: 14px; align-content: start; }
+.au-view.is-in { animation: au-view-in .45s cubic-bezier(.2, .9, .2, 1); }
+@keyframes au-view-in { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+.au-title { font-size: 28px; line-height: 1.1; }
+.au-sub { margin: -6px 0 6px; color: var(--body-strong, #5f5656); line-height: 1.5; }
+
+/* Fields */
+.au-field { display: grid; gap: 6px; }
+.au-field label { font-size: 13px; font-weight: 700; }
+.au-field input {
+  width: 100%; height: 48px; padding: 0 14px; font: inherit; color: #000; background: #fff;
+  border: 1px solid #bdbdbd; border-radius: 0; transition: border-color .15s, background .15s;
+}
+.au-field input:hover { border-color: #666; }
+.au-field input:focus { outline: none; border-color: #000; box-shadow: inset 0 0 0 1px #000; }
+.au-field input[aria-invalid="true"] { border-color: #c8102e; box-shadow: inset 0 0 0 1px #c8102e; }
+.au-err { margin: 0; min-height: 0; font-size: 12.5px; color: #c8102e; }
+.au-err:empty { display: none; }
+.au-pw { position: relative; }
+.au-pw input { padding-right: 48px; }
+.au-eye { position: absolute; right: 0; top: 0; width: 48px; height: 48px; display: grid; place-items: center; background: none; border: 0; cursor: pointer; color: #666; }
+.au-eye:hover, .au-eye.is-on { color: #000; }
+
+/* Password strength */
+.au-meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: -6px; }
+.au-meter i { height: 3px; background: #e3e3e3; transition: background .25s; }
+.au-meter i.on.s1 { background: #c8102e; } .au-meter i.on.s2 { background: #e08a00; }
+.au-meter i.on.s3 { background: #5a9a3c; } .au-meter i.on.s4 { background: #000; }
+
+/* Checkbox + links */
+.au-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.au-check { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; cursor: pointer; }
+.au-check input { width: 18px; height: 18px; margin: 1px 0 0; accent-color: #000; flex: none; }
+.au-check a { color: #000; }
+.au-link { background: none; border: 0; padding: 0; font: inherit; font-size: 13.5px; font-weight: 700; color: #000; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.au-link:hover { text-decoration-thickness: 2px; }
+.au-form-err { margin: 0; font-size: 13.5px; color: #c8102e; }
+.au-form-err:empty { display: none; }
+.au-ok { margin: 0; font-size: 14px; color: #1b6e2d; }
+.au-ok:empty { display: none; }
+
+/* Buttons */
+.au-submit {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 50px;
+  background: #000; color: #fff; border: 1px solid #000; border-radius: 0; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.au-submit:hover { background: #fff; color: #000; }
+.au-submit:disabled { opacity: .7; cursor: progress; }
+.au-submit.is-busy span::after { content: ""; display: inline-block; width: 14px; height: 14px; margin-left: 10px; vertical-align: -2px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: au-spin .7s linear infinite; }
+@keyframes au-spin { to { transform: rotate(360deg); } }
+.au-outline { width: 100%; height: 48px; background: #fff; color: #000; border: 1px solid #000; border-radius: 0; font: inherit; font-weight: 700; cursor: pointer; }
+.au-outline:hover { background: #000; color: #fff; }
+
+/* Social */
+.au-or { display: flex; align-items: center; gap: 12px; margin: 4px 0; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #777; }
+.au-or::before, .au-or::after { content: ""; flex: 1; height: 1px; background: var(--hairline, #dcdcdc); }
+.au-social { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media (max-width: 420px) { .au-social { grid-template-columns: 1fr; } }
+.au-soc { height: 46px; display: flex; align-items: center; justify-content: center; gap: 8px; background: #fff; color: #000; border: 1px solid #bdbdbd; border-radius: 0; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: border-color .15s, background .15s; }
+.au-soc-ico { width: 22px; height: 22px; object-fit: contain; flex: none; }
+.au-soc b { width: 22px; height: 22px; display: grid; place-items: center; background: #000; color: #fff; font-size: 13px; }
+.au-soc:hover { border-color: #000; background: #f5f5f5; }
+.au-switch { margin: 6px 0 0; text-align: center; font-size: 14px; color: var(--body-strong, #5f5656); }
+
+/* Signed-in view */
+.au-done { justify-items: stretch; text-align: center; padding-top: 24px; }
+.au-avatar { width: 72px; height: 72px; margin: 0 auto 6px; display: grid; place-items: center; background: #000; color: #fff; font-family: var(--font-display, serif); font-size: 32px; }
+.au-done .au-sub { margin: 0 0 12px; }
+
+/* Visible keyboard focus */
+.au-dialog button:focus-visible, .au-dialog a:focus-visible, .au-check input:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .au-backdrop, .au-dialog, .au-tabs::after, .au-view.is-in, .au-meter i { transition: none; animation: none; }
+}

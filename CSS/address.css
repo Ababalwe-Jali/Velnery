@@ -1,0 +1,38 @@
+/* VELNERY address dialog extras. Load AFTER auth.css (it reuses the same dialog styles). */
+.ad-image { background-image: url("../Assets/img/address.jpg"), url("https://images.unsplash.com/photo-1760565030786-91526dff426c?auto=format&fit=crop&w=1000&q=80"); }
+
+.au-field select, .au-field textarea {
+  width: 100%; padding: 0 14px; font: inherit; color: #000; background: #fff; border: 1px solid #bdbdbd; border-radius: 0; transition: border-color .15s;
+}
+.au-field select { height: 48px; appearance: none; background-image: linear-gradient(45deg, transparent 50%, #000 50%), linear-gradient(135deg, #000 50%, transparent 50%); background-position: calc(100% - 20px) 21px, calc(100% - 14px) 21px; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 36px; }
+.au-field textarea { padding: 12px 14px; resize: vertical; min-height: 72px; }
+.au-field select:hover, .au-field textarea:hover { border-color: #666; }
+.au-field select:focus, .au-field textarea:focus { outline: none; border-color: #000; box-shadow: inset 0 0 0 1px #000; }
+.au-field select[aria-invalid="true"] { border-color: #c8102e; box-shadow: inset 0 0 0 1px #c8102e; }
+.ad-opt { font-weight: 400; color: #777; font-size: 12px; }
+
+.ad-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 520px) { .ad-grid { grid-template-columns: 1fr 1fr; } }
+
+/* Address type chips */
+.ad-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.ad-chip input { position: absolute; opacity: 0; pointer-events: none; }
+.ad-chip span { display: inline-block; padding: 9px 18px; border: 1px solid #bdbdbd; font-size: 14px; font-weight: 600; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.ad-chip:hover span { border-color: #000; }
+.ad-chip input:checked + span { background: #000; color: #fff; border-color: #000; }
+.ad-chip input:focus-visible + span { outline: 2px solid #000; outline-offset: 2px; }
+
+/* Saved address cards */
+.ad-list { display: grid; gap: 10px; }
+.ad-empty { margin: 0; color: #777; }
+.ad-card { border: 1px solid var(--hairline, #dcdcdc); transition: border-color .15s; }
+.ad-card:hover { border-color: #000; }
+.ad-card.is-active { border-color: #000; box-shadow: inset 0 0 0 1px #000; }
+.ad-pick { display: flex; gap: 14px; align-items: flex-start; width: 100%; padding: 16px 16px 8px; background: none; border: 0; text-align: left; font: inherit; color: #000; cursor: pointer; }
+.ad-dot { flex: none; width: 18px; height: 18px; margin-top: 2px; border: 2px solid #000; border-radius: 50%; position: relative; }
+.ad-card.is-active .ad-dot::after { content: ""; position: absolute; inset: 3px; background: #000; border-radius: 50%; }
+.ad-txt { display: grid; gap: 2px; line-height: 1.45; }
+.ad-txt strong { font-size: 15px; }
+.ad-txt span { color: var(--body-strong, #5f5656); font-size: 14px; }
+.ad-txt em { font-style: normal; font-size: 13px; color: #777; }
+.ad-tools { display: flex; gap: 18px; padding: 0 16px 14px 48px; }

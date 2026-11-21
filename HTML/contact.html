@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact – VELNERY</title>
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/auth.css">
+  <link rel="stylesheet" href="../CSS/address.css">
+</head>
+<body data-root="../" data-page="contact">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="display-lg">Contact us</h1>
+        <p>Questions about an order, a product or a store? Send us a message.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <form class="form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="c-name">Name</label>
+            <input type="text" id="c-name" name="name" autocomplete="name">
+            <span class="error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="c-email">Email</label>
+            <input type="email" id="c-email" name="email" autocomplete="email">
+            <span class="error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="c-topic">Topic</label>
+            <select id="c-topic" name="topic">
+              <option value="">Choose a topic</option>
+              <option>Order or delivery</option>
+              <option>Product question</option>
+              <option>Store feedback</option>
+              <option>Something else</option>
+            </select>
+            <span class="error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="c-message">Message</label>
+            <textarea id="c-message" name="message" rows="6"></textarea>
+            <span class="error" role="alert"></span>
+          </div>
+          <button class="btn" type="submit">Send message</button>
+          <div class="notice" id="contact-notice" role="status" hidden></div>
+        </form>
+
+        <div>
+          <div class="info-block" style="margin-bottom:24px">
+            <h3>Prefer to visit?</h3>
+            <p>Use the <a href="stores.html">store finder</a> to see opening hours near you.</p>
+          </div>
+          <div class="info-block" style="margin-bottom:24px">
+            <h3>Order help</h3>
+            <p>Check your <a href="cart.html">cart</a> or keep browsing the <a href="shop.html">shop</a>.</p>
+          </div>
+          <div class="info-block">
+            <h3>Response time</h3>
+            <p>This is a demo form, so messages are not actually sent.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="../JavaScript/main.js"></script>
+<script src="../JavaScript/auth.js"></script>
+<script src="../JavaScript/address.js"></script>
+<script src="../JavaScript/products.js"></script>
+<script src="../JavaScript/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* VELNERY – About page. Load after styles.css. Flat, sharp corners, no shadows. */
+:root { --ab-img: "https://images.unsplash.com/photo-"; }
+
+.eyebrow { color: inherit; opacity: .75; margin: 0 0 var(--sm); }
+
+/* Hero */
+.ab-hero {
+  position: relative; min-height: 78vh; display: flex; align-items: flex-end; color: #fff;
+  background: #333 url("../Assets/img/abou") center / cover no-repeat;
+}
+.ab-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,.15) 0%, rgba(0,0,0,.75) 100%); }
+.ab-hero-inner { position: relative; padding-top: var(--band); padding-bottom: var(--band); }
+.ab-hero h1 { font-size: 56px; line-height: 1.02; letter-spacing: -1px; margin-bottom: var(--md); }
+.ab-lead { max-width: 560px; font-size: 18px; line-height: 1.6; color: #eee; margin: 0 0 var(--xl); }
+.ab-actions { display: flex; flex-wrap: wrap; gap: var(--sm); }
+.ab-btn-ghost { background: transparent; color: #fff; border: 1px solid #fff; }
+.ab-btn-ghost:hover { background: #fff; color: #000; }
+
+/* Statement */
+.ab-statement { padding: var(--band) 0; }
+.ab-big { max-width: 900px; margin: 0; font-family: var(--font-display); font-size: 40px; line-height: 1.2; color: var(--ink); }
+
+/* Story split */
+.ab-split { display: grid; gap: var(--xxl); align-items: center; }
+@media (min-width: 900px) { .ab-split { grid-template-columns: 1fr 1fr; gap: 72px; } .ab-split-rev .ab-photo { order: 2; } }
+.ab-photo { aspect-ratio: 4 / 5; background: #888 center / cover no-repeat; }
+.ab-photo-story { background-image: url("https://images.unsplash.com/photo-1760565030786-91526dff426c?auto=format&fit=crop&w=1000&q=80"); }
+.ab-photo-care  { background-image: url("https://images.unsplash.com/photo-1591586116988-62fe65164f8d?auto=format&fit=crop&w=1000&q=80"); }
+.ab-copy .display-md { margin-bottom: var(--md); }
+.ab-copy p { margin: 0 0 var(--md); max-width: 52ch; }
+.ab-story-alt { background: #F5F5F5; }
+.ab-list { list-style: none; margin: var(--lg) 0 0; padding: 0; display: grid; gap: var(--xs); }
+.ab-list li { padding: var(--xs) 0 var(--xs) 28px; border-top: 1px solid var(--hairline); position: relative; font-size: 16px; }
+.ab-list li::before { content: ""; position: absolute; left: 0; top: 50%; width: 14px; height: 2px; background: #000; }
+
+/* Numbers */
+.ab-numbers { background: #000; color: #fff; padding: var(--band) 0; }
+.ab-numbers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--xxl) var(--md); }
+@media (min-width: 900px) { .ab-numbers-grid { grid-template-columns: repeat(4, 1fr); } }
+.ab-num { border-top: 1px solid #555; padding-top: var(--md); }
+.ab-num .stat { font-size: clamp(44px, 6vw, 72px); }
+.ab-num p { margin: var(--xxs) 0 0; color: #ccc; }
+
+/* Values */
+.ab-h { margin-bottom: var(--xxl); max-width: 18ch; }
+.ab-values { display: grid; grid-template-columns: 1fr; gap: var(--md); }
+@media (min-width: 640px)  { .ab-values { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .ab-values { grid-template-columns: repeat(4, 1fr); } }
+.ab-value { border: 1px solid var(--hairline); padding: var(--xl); background: #fff; transition: border-color .15s; }
+.ab-value:hover { border-color: #000; }
+.ab-value h3 { font-size: 20px; margin: var(--md) 0 var(--xs); }
+.ab-value p { margin: 0; color: var(--body-strong); line-height: 1.6; }
+.ab-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: #000; color: #fff; }
+.ab-icon svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Departments strip */
+.ab-depts { display: grid; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 900px) { .ab-depts { grid-template-columns: repeat(4, 1fr); } }
+.ab-dept {
+  position: relative; display: flex; align-items: flex-end; min-height: 320px; padding: var(--xl); color: #fff; text-decoration: none; overflow: hidden;
+  background: #555 center / cover no-repeat;
+}
+.ab-dept::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,.7) 100%); transition: background .2s; }
+.ab-dept:hover::before { background: linear-gradient(rgba(0,0,0,.1) 0%, rgba(0,0,0,.8) 100%); }
+.ab-dept span { position: relative; font-family: var(--font-display); font-size: 26px; }
+.ab-dept span::after { content: " →"; }
+.ab-dept-food     { background-image: url("https://images.unsplash.com/photo-1591586116988-62fe65164f8d?auto=format&fit=crop&w=700&q=80"); }
+.ab-dept-clothing { background-image: url("https://images.unsplash.com/photo-1603400521630-9f2de124b33b?auto=format&fit=crop&w=700&q=80"); }
+.ab-dept-home     { background-image: url("https://images.unsplash.com/photo-1774927475366-7c4d31588d98?auto=format&fit=crop&w=700&q=80"); }
+.ab-dept-beauty   { background-image: url("https://images.unsplash.com/photo-1762651356493-c492ca111a07?auto=format&fit=crop&w=700&q=80"); }
+
+/* Help cards */
+.ab-help-grid { display: grid; gap: var(--md); }
+@media (min-width: 800px) { .ab-help-grid { grid-template-columns: repeat(3, 1fr); } }
+.ab-help-card { position: relative; display: grid; gap: var(--xxs); padding: var(--xl); padding-right: 64px; border: 1px solid var(--hairline); color: var(--ink); text-decoration: none; transition: background .15s, color .15s, border-color .15s; }
+.ab-help-card strong { font-family: var(--font-display); font-size: 20px; font-weight: 400; }
+.ab-help-card span { color: var(--body-strong); }
+.ab-help-card em { position: absolute; right: var(--xl); top: 50%; transform: translateY(-50%); font-style: normal; font-size: 22px; }
+.ab-help-card:hover { background: #000; color: #fff; border-color: #000; }
+.ab-help-card:hover span { color: #ccc; }
+
+/* Closing CTA */
+.ab-cta { background: #F9F9F9; color: var(--ink); padding: 96px 0; text-align: center; }
+.ab-cta-inner { display: grid; gap: var(--md); justify-items: center; }
+.ab-cta p { margin: 0; font-size: 18px; }
+.ab-cta .btn-promo { background: #000; color: #fff; }
+.ab-cta .btn-promo:hover { background: #333; border-color: #333; color: #fff; }
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .ab-value, .ab-help-card, .ab-dept::before { transition: none; }
+}
