@@ -80,7 +80,8 @@
     user:   '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>',
     bag:    '<path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/>',
     pin:    '<path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
-    chev:   '<path d="M6 9l6 6 6-6"/>'
+    chev:   '<path d="M6 9l6 6 6-6"/>',
+    heart:  '<path d="M12 20.5s-8-4.9-8-11a4.6 4.6 0 018-3 4.6 4.6 0 018 3c0 6.1-8 11-8 11z"/>'
   };
 
   // ---------- social media icons (filled glyphs, inherit the text colour) ----------
@@ -184,6 +185,8 @@
               '<span class="hdr-text"><small>Deliver to</small><strong id="address-text">' + (address || "Set address") + "</strong></span></button>" +
             '<a class="hdr-btn" href="' + root + 'HTML/signin.html">' + icon(ICONS.user) +
               '<span class="hdr-text"><small>Hello</small><strong>Sign in</strong></span></a>' +
+            '<a class="hdr-btn wish-btn" href="' + root + 'HTML/wishlist.html" aria-label="Wishlist"' + (current === "wishlist" ? ' aria-current="page"' : "") + ">" +
+              '<span class="icon-wrap">' + icon(ICONS.heart) + '<span class="cart-count" id="wish-count">0</span></span></a>' +
             '<a class="hdr-btn cart-btn" href="' + root + 'HTML/cart.html" aria-label="Cart"' + (current === "cart" ? ' aria-current="page"' : "") + ">" +
               '<span class="icon-wrap">' + icon(ICONS.bag) + '<span class="cart-count" id="cart-count">0</span></span></a>' +
           "</div>" +
@@ -243,11 +246,11 @@
   // Payment logos live in Assets/icon. Rename the files here to match yours (svg, png, webp all work).
   // Leave logo as null to show the plain text label instead.
   var PAYMENTS = [
-    { name: "Visa",       logo: "Assets/icon/visa.png" },
-    { name: "Mastercard", logo: "Assets/icon/mastercard.webp" },
-    { name: "Payflex",    logo: "Assets/icon/payflex.png" },
-    { name: "EFT",        logo: "Assets/icon/mobicred.png" },
-    { name: "Gift card",  logo: "Assets/icon/TFG.png" }
+    { name: "Visa",       logo: "Assets/icon/visa.svg" },
+    { name: "Mastercard", logo: "Assets/icon/mastercard.svg" },
+    { name: "Payflex",    logo: "Assets/icon/payflex.svg" },
+    { name: "EFT",        logo: null },
+    { name: "Gift card",  logo: null }
   ];
 
   function paymentList() {
@@ -282,6 +285,7 @@
       { label: "Payflex",        href: root + "index.html#payflex" },
       { label: "Rewards",        href: root + "index.html#rewards" },
       { label: "Gift cards",     href: root + "index.html#giftcards" },
+      { label: "Wishlist",       href: root + "HTML/wishlist.html" },
       { label: "Your cart",      href: root + "HTML/cart.html" },
       { label: "Sign in",        href: root + "HTML/signin.html" }
     ];
@@ -413,9 +417,17 @@
     if (el) el.textContent = WW.cartCount();
   }
 
+  function updateWishBadge() {
+    var el = document.getElementById("wish-count"), n = 0;
+    try { n = (JSON.parse(localStorage.getItem("ww_wishlist")) || []).length; } catch (e) {}
+    if (el) el.textContent = n;
+  }
+
   buildHeader();
   buildFooter();
   updateBadge();
+  updateWishBadge();
+  window.addEventListener("wishlistchange", updateWishBadge);
   window.addEventListener("cartchange", updateBadge);
-  window.addEventListener("storage", updateBadge); // other tab changed the cart
+  window.addEventListener("storage", function () { updateBadge(); updateWishBadge(); }); // other tab changed the cart or wishlist
 })();

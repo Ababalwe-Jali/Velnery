@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wishlist – VELNERY</title>
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/auth.css">
+  <link rel="stylesheet" href="../CSS/address.css">
+  <link rel="stylesheet" href="../CSS/wishlist.css">
+</head>
+<body data-root="../" data-page="wishlist">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="display-lg">Your wishlist</h1>
+        <p id="wl-sub">Everything you've saved, in one place.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- toolbar (only when there are items) -->
+        <div class="wl-bar" id="wl-bar" hidden>
+          <p class="body-md" id="wl-count" role="status"></p>
+          <div class="wl-bar-actions">
+            <label class="sr-only" for="wl-sort">Sort wishlist</label>
+            <select id="wl-sort">
+              <option value="added">Sort: Recently added</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+            <button class="btn" type="button" id="wl-add-all">Add all to cart</button>
+            <button class="btn btn-secondary" type="button" id="wl-clear">Clear wishlist</button>
+          </div>
+        </div>
+
+        <div class="grid-5" id="wl-grid"></div>
+
+        <!-- empty state -->
+        <div class="wl-empty" id="wl-empty" hidden>
+          <span class="wl-empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20.5s-8-4.9-8-11a4.6 4.6 0 018-3 4.6 4.6 0 018 3c0 6.1-8 11-8 11z"/></svg></span>
+          <h2 class="display-md">Your wishlist is empty</h2>
+          <p class="muted">Tap the heart on any product to save it here for later.</p>
+          <a class="btn" href="shop.html">Browse products</a>
+        </div>
+
+        <!-- suggestions -->
+        <section class="wl-more" id="wl-more" hidden>
+          <h2 class="display-md">You might also like</h2>
+          <div class="grid-5" id="wl-suggest"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../JavaScript/main.js"></script>
+  <script src="../JavaScript/auth.js"></script>
+  <script src="../JavaScript/address.js"></script>
+  <script src="../JavaScript/products.js"></script>
+  <script src="../JavaScript/wishlist.js"></script>
+</body>
+</html>

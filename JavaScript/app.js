@@ -257,9 +257,6 @@
 
   function Cart() {
     var c = useCart();
-    var cs = useState(false);
-    var ordered = cs[0], setOrdered = cs[1];
-
     var lines = Object.keys(c.cart).map(function (id) {
       var p = PRODUCTS.filter(function (x) { return String(x.id) === id; })[0];
       return p ? { product: p, qty: c.cart[id] } : null;
@@ -268,15 +265,6 @@
     var subtotal = lines.reduce(function (s, l) { return s + l.product.price * l.qty; }, 0);
     var delivery = subtotal === 0 || subtotal >= DELIVERY_THRESHOLD ? 0 : DELIVERY_FEE;
     var total = subtotal + delivery;
-
-    if (ordered) {
-      return h("div", { className: "empty" },
-        h("span", { className: "badge badge-yellow" }, "Order placed"),
-        h("h2", { className: "display-md", style: { marginTop: 16 } }, "Thank you!"),
-        h("p", null, "This is a demo, so nothing was actually ordered."),
-        h("a", { className: "btn", href: pageRoot() + "HTML/shop.html" }, "Keep shopping")
-      );
-    }
 
     if (!lines.length) {
       return h("div", { className: "empty" },
@@ -314,7 +302,7 @@
           ? h("p", { className: "body-sm muted", style: { margin: 0 } }, "Spend " + WW.money(DELIVERY_THRESHOLD - subtotal) + " more for free delivery.")
           : null,
         h("div", { className: "summary-row summary-total" }, h("span", null, "Total"), h("span", null, WW.money(total))),
-        h("button", { className: "btn", type: "button", onClick: function () { c.clear(); setOrdered(true); } }, "Checkout")
+        h("a", { className: "btn", href: pageRoot() + "HTML/checkout.html" }, "Checkout")
       )
     );
   }
@@ -336,7 +324,7 @@
       );
     }
 
-    document.title = p.name + " \u2013 Woolworths (demo)";
+    document.title = p.name + " \u2013 VELNERY";
     var onSale = p.was && p.was > p.price;
     var pct = onSale ? Math.round((1 - p.price / p.was) * 100) : 0;
     var related = PRODUCTS.filter(function (x) { return x.cat === p.cat && x.id !== p.id; }).slice(0, 5);

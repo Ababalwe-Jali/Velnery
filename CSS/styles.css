@@ -1,15 +1,11 @@
-/* ==========================================================
-   Woolworths-inspired design system
-   Flat, shadowless, sharp-cornered, colour-blocked.
-   Tokens come from the project's DESIGN.md
-   ========================================================== */
+
 
 :root {
   --primary: #000000;
   --canvas: #F9F9F9;
   --ink: #000000;
   --body: #7F7474;
-  --body-strong: #5F5656; /* darker taupe for small text (the #7F7474 token is 4.29:1 on canvas) */
+  --body-strong: #5F5656; 
   --hairline: #DCDCDC;
   --neutral-1: #E5E7EB;
   --promo-yellow: #FFFF00;

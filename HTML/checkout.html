@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout – VELNERY</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/auth.css">
+  <link rel="stylesheet" href="../CSS/address.css">
+  <link rel="stylesheet" href="../CSS/checkout.css">
+</head>
+<body data-root="../" data-page="checkout">
+  <div id="site-header"></div>
+
+  <main id="main" class="co-page">
+    <div class="container">
+
+      <!-- progress -->
+      <ol class="co-steps" aria-label="Checkout progress">
+        <li><a href="cart.html">Cart</a></li>
+        <li class="is-current" aria-current="step">Checkout</li>
+        <li>Confirmation</li>
+      </ol>
+
+      <h1 class="display-md co-title">Checkout</h1>
+
+      <!-- empty cart -->
+      <div class="co-empty" id="co-empty" hidden>
+        <h2>Your cart is empty</h2>
+        <p class="muted">Add a few items before checking out.</p>
+        <a class="btn" href="shop.html">Continue shopping</a>
+      </div>
+
+      <div class="co-layout" id="co-layout" hidden>
+        <form id="co-form" class="co-form" novalidate>
+
+          <!-- 1. Contact -->
+          <section class="co-card" aria-labelledby="co-h-contact">
+            <h2 id="co-h-contact"><span>1</span> Contact details</h2>
+            <p class="co-signin" id="co-signin">Already have an account? <button type="button" class="co-link" id="co-signin-btn">Sign in</button> for faster checkout.</p>
+            <div class="co-grid">
+              <div class="co-field"><label for="co-name">Full name</label><input id="co-name" type="text" autocomplete="name" placeholder="Your name"><p class="co-err" id="co-name-err" role="alert"></p></div>
+              <div class="co-field"><label for="co-phone">Phone number</label><input id="co-phone" type="tel" autocomplete="tel" placeholder="082 123 4567"><p class="co-err" id="co-phone-err" role="alert"></p></div>
+            </div>
+            <div class="co-field"><label for="co-email">Email address</label><input id="co-email" type="email" autocomplete="email" placeholder="you@example.com"><p class="co-err" id="co-email-err" role="alert"></p></div>
+          </section>
+
+          <!-- 2. Delivery address -->
+          <section class="co-card" aria-labelledby="co-h-address">
+            <h2 id="co-h-address"><span>2</span> Delivery address</h2>
+            <div class="co-field" id="co-saved-wrap" hidden>
+              <label for="co-saved">Saved addresses</label>
+              <select id="co-saved"></select>
+            </div>
+            <div class="co-field"><label for="co-street">Street address</label><input id="co-street" type="text" autocomplete="address-line1" placeholder="12 Main Road"><p class="co-err" id="co-street-err" role="alert"></p></div>
+            <div class="co-field"><label for="co-unit">Complex, unit or building <small>(optional)</small></label><input id="co-unit" type="text" autocomplete="address-line2" placeholder="Unit 4, Oak Court"></div>
+            <div class="co-grid">
+              <div class="co-field"><label for="co-suburb">Suburb</label><input id="co-suburb" type="text" autocomplete="address-level3" placeholder="Sandton"><p class="co-err" id="co-suburb-err" role="alert"></p></div>
+              <div class="co-field"><label for="co-city">City / town</label><input id="co-city" type="text" autocomplete="address-level2" placeholder="Johannesburg"><p class="co-err" id="co-city-err" role="alert"></p></div>
+            </div>
+            <div class="co-grid">
+              <div class="co-field"><label for="co-province">Province</label>
+                <select id="co-province" autocomplete="address-level1">
+                  <option value="">Select province</option>
+                  <option>Eastern Cape</option><option>Free State</option><option>Gauteng</option><option>KwaZulu-Natal</option>
+                  <option>Limpopo</option><option>Mpumalanga</option><option>Northern Cape</option><option>North West</option><option>Western Cape</option>
+                </select><p class="co-err" id="co-province-err" role="alert"></p></div>
+              <div class="co-field"><label for="co-postal">Postal code</label><input id="co-postal" type="text" inputmode="numeric" maxlength="4" autocomplete="postal-code" placeholder="2196"><p class="co-err" id="co-postal-err" role="alert"></p></div>
+            </div>
+            <div class="co-field"><label for="co-notes">Delivery instructions <small>(optional)</small></label><textarea id="co-notes" rows="2" maxlength="160" placeholder="e.g. Gate code, leave with security"></textarea></div>
+            <label class="co-check"><input type="checkbox" id="co-save" checked><span>Save this address for next time</span></label>
+          </section>
+
+          <!-- 3. Delivery method -->
+          <section class="co-card" aria-labelledby="co-h-ship">
+            <h2 id="co-h-ship"><span>3</span> Delivery method</h2>
+            <div class="co-options" role="radiogroup" aria-label="Delivery method">
+              <label class="co-option"><input type="radio" name="ship" value="standard" checked>
+                <span class="co-opt-body"><strong>Standard delivery</strong><small id="co-std-days">2–4 working days</small></span>
+                <span class="co-opt-price" id="co-std-price">R60.00</span></label>
+              <label class="co-option"><input type="radio" name="ship" value="express">
+                <span class="co-opt-body"><strong>Express delivery</strong><small id="co-exp-days">Next working day</small></span>
+                <span class="co-opt-price">R120.00</span></label>
+            </div>
+          </section>
+
+          <!-- 4. Payment -->
+          <section class="co-card" aria-labelledby="co-h-pay">
+            <h2 id="co-h-pay"><span>4</span> Payment method</h2>
+            <div class="co-options" role="radiogroup" aria-label="Payment method">
+              <label class="co-option"><input type="radio" name="pay" value="card" checked>
+                <span class="co-opt-body"><strong>Credit or debit card</strong><small>Visa, Mastercard</small></span>
+                <span class="co-logos"><img src="../Assets/icon/visa.png" alt="Visa" height="22" onerror="this.style.display='none'"><img src="../Assets/icon/mastercard.webp" alt="Mastercard" height="22" onerror="this.style.display='none'"></span></label>
+              <label class="co-option"><input type="radio" name="pay" value="payflex">
+                <span class="co-opt-body"><strong>Payflex</strong><small id="co-payflex-note">Pay in 4 interest-free instalments</small></span>
+                <span class="co-logos"><img src="../Assets/icon/payflex.png" alt="Payflex" height="22" onerror="this.style.display='none'"></span></label>
+              <label class="co-option"><input type="radio" name="pay" value="eft">
+                <span class="co-opt-body"><strong>Instant EFT</strong><small>Pay securely from your bank</small></span>
+                <span class="co-logos"><img src="../Assets/icon/instant-eft-logo.svg" alt="Instant EFT" height="22" onerror="this.style.display='none'"></span></label>
+            </div>
+
+            <div class="co-pane" id="co-pane-card">
+              <div class="co-field"><label for="co-card">Card number</label><input id="co-card" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="23"><p class="co-err" id="co-card-err" role="alert"></p></div>
+              <div class="co-field"><label for="co-cardname">Name on card</label><input id="co-cardname" type="text" autocomplete="cc-name" placeholder="As shown on the card"><p class="co-err" id="co-cardname-err" role="alert"></p></div>
+              <div class="co-grid">
+                <div class="co-field"><label for="co-exp">Expiry (MM/YY)</label><input id="co-exp" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5"><p class="co-err" id="co-exp-err" role="alert"></p></div>
+                <div class="co-field"><label for="co-cvv">CVV</label><input id="co-cvv" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4"><p class="co-err" id="co-cvv-err" role="alert"></p></div>
+              </div>
+            </div>
+            <p class="co-pane" id="co-pane-payflex" hidden>You'll be redirected to Payflex to approve your purchase after placing the order. Your first instalment is taken today.</p>
+            <p class="co-pane" id="co-pane-eft" hidden>You'll choose your bank after placing the order, then confirm the payment securely.</p>
+          </section>
+
+          <p class="co-form-err" id="co-form-err" role="alert"></p>
+          <button class="co-place" id="co-place" type="submit"><span>Place order</span></button>
+          <p class="co-legal">By placing your order you agree to our <a href="about.html">Terms</a> and <a href="about.html">Privacy Policy</a>.</p>
+        </form>
+
+        <!-- Order summary -->
+        <aside class="co-summary" aria-labelledby="co-h-sum">
+          <h2 id="co-h-sum">Order summary</h2>
+          <ul class="co-items" id="co-items"></ul>
+          <div class="co-rows">
+            <div><span>Subtotal</span><span id="co-sub">R0.00</span></div>
+            <div><span>Delivery</span><span id="co-ship">R0.00</span></div>
+            <div class="co-total"><span>Total</span><span id="co-total">R0.00</span></div>
+            <p class="co-vat" id="co-vat"></p>
+          </div>
+          <p class="co-free" id="co-free"></p>
+          <a class="co-edit" href="cart.html">&larr; Edit cart</a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../JavaScript/main.js"></script>
+  <script src="../JavaScript/auth.js"></script>
+  <script src="../JavaScript/address.js"></script>
+  <script src="../JavaScript/products.js"></script>
+  <script src="../JavaScript/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* VELNERY wishlist page. Load after styles.css. */
+body[data-page="wishlist"] .page-hero { background-image: url("https://images.unsplash.com/photo-1760565030786-91526dff426c?auto=format&fit=crop&w=1800&q=80"); }
+
+.wl-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--md); margin-bottom: var(--xl); padding-bottom: var(--md); border-bottom: 1px solid var(--hairline); }
+.wl-bar[hidden], .wl-empty[hidden], .wl-more[hidden] { display: none; }
+.wl-bar p { margin: 0; font-weight: 700; }
+.wl-bar-actions { display: flex; flex-wrap: wrap; gap: var(--sm); align-items: center; }
+.wl-bar-actions select { width: auto; min-width: 190px; min-height: 44px; }
+@media (max-width: 560px) { .wl-bar-actions { width: 100%; } .wl-bar-actions > * { flex: 1 1 100%; } }
+
+/* cards leave with a short fade when removed */
+.product-card.is-leaving { opacity: 0; transform: scale(.97); transition: opacity .25s ease, transform .25s ease; }
+@media (prefers-reduced-motion: reduce) { .product-card.is-leaving { transition: none; } }
+
+.wl-empty { display: grid; gap: var(--md); justify-items: center; text-align: center; padding: var(--band) 0 var(--xl); }
+.wl-empty p { margin: 0; max-width: 420px; }
+.wl-empty-icon { width: 72px; height: 72px; display: grid; place-items: center; border: 1px solid #000; }
+.wl-empty-icon svg { width: 34px; height: 34px; fill: none; stroke: #000; stroke-width: 1.5; stroke-linejoin: round; }
+.wl-more { margin-top: var(--band); }
+.wl-more h2 { margin-bottom: var(--xl); }
