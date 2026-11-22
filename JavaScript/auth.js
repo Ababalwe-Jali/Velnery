@@ -117,7 +117,7 @@
         '<form class="au-view" data-pane="signup" novalidate>' +
           '<h2 class="au-title">Create your account</h2>' +
           '<p class="au-sub">Join VELNERY for faster checkout and member-only offers.</p>' +
-          field("su-name", "Full name", "text", 'autocomplete="name" placeholder="Enter your full name"') +
+          field("su-name", "Full name", "text", 'autocomplete="name" placeholder="Enter your full names"') +
           field("su-email", "Email address", "email", 'autocomplete="email" placeholder="someone@example.com"') +
           pwField("su-pw", "Password", "new-password") +
           '<div class="au-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div>' +
@@ -351,14 +351,35 @@
     });
   }
 
+  function authLink(t) {
+    return t && t.closest ? t.closest('a[href$="signin.html"], a[href$="signup.html"], [data-auth]') : null;
+  }
+  function openFrom(a) {
+    var which = a.getAttribute("data-auth") || (/signup\.html$/.test(a.getAttribute("href") || "") ? "signup" : "signin");
+    openDialog(which);
+  }
   document.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest('a[href$="signin.html"], a[href$="signup.html"], [data-auth]');
+    var a = authLink(e.target);
     if (!a) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
     e.preventDefault();
-    var which = a.getAttribute("data-auth") || (/signup\.html$/.test(a.getAttribute("href") || "") ? "signup" : "signin");
-    openDialog(which);
+    openFrom(a);
   });
+  /* Phones: open on a tap even if the browser is slow to send "click" (also stops the link navigating). */
+  var tp = null;
+  document.addEventListener("touchstart", function (e) {
+    var t = e.touches && e.touches[0];
+    tp = t ? { x: t.clientX, y: t.clientY, el: e.target } : null;
+  }, { capture: true, passive: true });
+  document.addEventListener("touchend", function (e) {
+    if (!tp) return;
+    var t = e.changedTouches && e.changedTouches[0], start = tp; tp = null;
+    if (!t || Math.abs(t.clientX - start.x) > 10 || Math.abs(t.clientY - start.y) > 10) return;
+    var a = authLink(start.el);
+    if (!a || a.closest(".au-root")) return;
+    e.preventDefault();          // cancels the follow-up click, so the dialog doesn't open twice
+    openFrom(a);
+  }, { capture: true, passive: false });
 
   document.addEventListener("DOMContentLoaded", updateHeader);
   window.addEventListener("load", updateHeader);

@@ -267,15 +267,29 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
 .badge-black { background: #000; color: #fff; }
 
 /* ---------- Hero ---------- */
-.hero { background: var(--primary); height: 692px; color: #fff; padding: var(--band) 0; }
-.hero .container { display: grid; gap: var(--xxl); }
+.hero {
+  position: relative; display: flex; align-items: center;
+  min-height: 692px;                                   /* grows with the content instead of a fixed height */
+  padding: var(--band) 0; color: #fff;
+  background-color: var(--primary);
+  background-image: url("../Assets/img/hero.jpg");     /* image lives here now, not inline in index.html */
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+}
+.hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 70%); }
+.hero .container { position: relative; display: grid; gap: var(--xxl); }
+@media (max-width: 767px) {
+  .hero { min-height: 520px; padding: 48px 0; background-position: 65% center; }   /* change 65% to move the crop left/right */
+  .hero::before { background: linear-gradient(rgba(0,0,0,.35) 0%, rgba(0,0,0,.7) 100%); }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; }
+}
 .hero p { max-width: 560px; margin: var(--md) 0 var(--xl); color: #ddd; }
 .hero .badge { margin-bottom: var(--md); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: var(--sm); }
 .hero .btn-secondary { color: #fff; border-color: #555; }
 .hero .btn-secondary:hover { background: #fff; color: var(--ink); border-color: #fff; }
 
-.page-hero { background: var(--primary); height: 310px; color: #fff; padding: var(--section) 0; }
+.page-hero { background: var(--primary); min-height: 310px; color: #fff; padding: var(--section) 0; }
 .page-hero p { max-width: 620px; margin: var(--sm) 0 0; color: #ddd; }
 
 /* ---------- Sections ---------- */

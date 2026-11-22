@@ -276,14 +276,30 @@
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
 
+  function addrBtn(t) { return t && t.closest ? t.closest("#address-btn, [data-address]") : null; }
   /* Capture-phase click: runs before main.js's old prompt() handler and stops it. */
   document.addEventListener("click", function (e) {
-    var b = e.target.closest && e.target.closest("#address-btn, [data-address]");
-    if (!b) return;
+    if (!addrBtn(e.target)) return;
     e.preventDefault();
     e.stopPropagation();
     openDialog();
   }, true);
+  /* Phones: open on a tap even if the browser is slow to send "click". */
+  var tp = null;
+  document.addEventListener("touchstart", function (e) {
+    var t = e.touches && e.touches[0];
+    tp = t ? { x: t.clientX, y: t.clientY, el: e.target } : null;
+  }, { capture: true, passive: true });
+  document.addEventListener("touchend", function (e) {
+    if (!tp) return;
+    var t = e.changedTouches && e.changedTouches[0], start = tp; tp = null;
+    if (!t || Math.abs(t.clientX - start.x) > 10 || Math.abs(t.clientY - start.y) > 10) return;
+    var b = addrBtn(start.el);
+    if (!b || b.closest(".au-root")) return;
+    e.preventDefault();
+    e.stopPropagation();
+    openDialog();
+  }, { capture: true, passive: false });
 
   document.addEventListener("DOMContentLoaded", updateHeader);
   window.addEventListener("load", updateHeader);

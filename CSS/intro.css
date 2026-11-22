@@ -1,11 +1,12 @@
-/* VELNERY intro curtain. Flat, black/white with a yellow accent. */
+/* VELNERY intro curtain. Flat, black/white. Responsive for all screen sizes. */
 /* Logo-style high-contrast serif (closest Google Font to the VELNERY wordmark) */
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&display=swap");
 
 html.intro-on, html.intro-on body { overflow: hidden; }
 
 .intro {
-  position: fixed; inset: 0; z-index: 100000; display: grid; place-items: center;
+  position: fixed; inset: 0; width: 100%; height: 100vh; height: 100dvh; overflow: hidden;
+  z-index: 100000; display: grid; place-items: center;
   background: #000; color: #fff; cursor: pointer;
   transition: transform 1.15s cubic-bezier(.77, 0, .18, 1);
   will-change: transform;
@@ -16,12 +17,14 @@ html.intro-on, html.intro-on body { overflow: hidden; }
 }
 .intro.is-lifting { transform: translateY(-100%); }
 
-.intro-inner { display: grid; justify-items: center; gap: 22px; padding: 0 24px; text-align: center; transition: opacity .5s ease, transform .9s cubic-bezier(.77,0,.18,1); }
+.intro-inner { display: grid; justify-items: center; gap: 22px; width: 100%; max-width: 100%; padding: 0 16px; text-align: center; transition: opacity .5s ease, transform .9s cubic-bezier(.77,0,.18,1); }
 .intro.is-lifting .intro-inner { opacity: 0; transform: translateY(-40px); }
 
+/* Font size scales with the screen width so all 7 letters always fit (even after the final "pop" scale-up) */
 .intro-word {
-  display: flex; font-family: "Bodoni Moda", "Bodoni 72", Didot, "Didot LT STD", "Times New Roman", serif;
-  font-size: 70px; line-height: 1; letter-spacing: .14em; font-weight: 400; padding-left: .14em;
+  display: flex; white-space: nowrap; max-width: 100%;
+  font-family: "Bodoni Moda", "Bodoni 72", Didot, "Didot LT STD", "Times New Roman", serif;
+  font-size: clamp(24px, 9.5vw, 110px); line-height: 1; letter-spacing: .14em; font-weight: 400; padding-left: .14em;
   transition: transform .8s cubic-bezier(.2,.9,.2,1), letter-spacing .8s cubic-bezier(.2,.9,.2,1);
 }
 .intro-word span {
@@ -30,11 +33,16 @@ html.intro-on, html.intro-on body { overflow: hidden; }
   animation-delay: calc(.35s + var(--i) * .13s);
 }
 /* All letters in: the whole name pops once */
-.intro.is-full .intro-word { transform: scale(1.07); letter-spacing: .2em; }
-.intro-line { display: block; width: 0; height: 1.5px; background: #Fff; transition: width .8s cubic-bezier(.2,.9,.2,1); }
+.intro.is-full .intro-word { transform: scale(1.05); letter-spacing: .18em; }
+.intro-line { display: block; width: 0; height: 1.5px; background: #fff; transition: width .8s cubic-bezier(.2,.9,.2,1); }
 .intro.is-full .intro-line { width: min(60vw, 420px); }
-.intro-tag { margin: 0; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #bbb; opacity: 0; transform: translateY(8px); transition: opacity .6s ease .1s, transform .6s ease .1s; }
+.intro-tag { margin: 0; font-size: clamp(9px, 2.8vw, 12px); letter-spacing: .3em; text-transform: uppercase; color: #bbb; opacity: 0; transform: translateY(8px); transition: opacity .6s ease .1s, transform .6s ease .1s; }
 .intro.is-full .intro-tag { opacity: 1; transform: none; }
+
+@media (max-width: 480px) {
+  .intro-inner { gap: 16px; }
+  .intro-tag { letter-spacing: .2em; }
+}
 
 @keyframes intro-pop { 0% { opacity: 0; transform: translateY(60%) scale(.4); } 100% { opacity: 1; transform: none; } }
 
