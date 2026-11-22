@@ -240,6 +240,23 @@
     }).join("") + "</ul>";
   }
 
+  // Payment logos live in Assets/icon. Rename the files here to match yours (svg, png, webp all work).
+  // Leave logo as null to show the plain text label instead.
+  var PAYMENTS = [
+    { name: "Visa",       logo: "Assets/icon/visa.png" },
+    { name: "Mastercard", logo: "Assets/icon/mastercard.webp" },
+    { name: "Payflex",    logo: "Assets/icon/payflex.png" },
+    { name: "EFT",        logo: "Assets/icon/mobicred.png" },
+    { name: "Gift card",  logo: "Assets/icon/TFG.png" }
+  ];
+
+  function paymentList() {
+    return PAYMENTS.map(function (p) {
+      if (!p.logo) return '<li><span>' + p.name + "</span></li>";
+      return '<li class="has-logo"><img src="' + root + p.logo + '" alt="' + p.name + '" data-name="' + p.name + '" height="20"></li>';
+    }).join("");
+  }
+
   function buildFooter() {
     var year = new Date().getFullYear();
     var shop = root + "HTML/shop.html";
@@ -334,7 +351,7 @@
           '<div class="footer-pay">' +
             '<span class="footer-label">We accept</span>' +
             '<ul class="pay-list" aria-label="Accepted payment methods">' +
-              "<li>Visa</li><li>Mastercard</li><li>Payflex</li><li>EFT</li><li>Gift card</li>" +
+              paymentList() +
             "</ul>" +
           "</div>" +
           '<ul class="trust-list">' +
@@ -366,6 +383,15 @@
 
     var holder = document.getElementById("site-footer");
     if (holder) holder.innerHTML = html;
+
+    // if a logo file is missing or misnamed, show the text label instead of a broken image
+    Array.prototype.forEach.call(document.querySelectorAll(".pay-list img"), function (img) {
+      img.addEventListener("error", function () {
+        var li = img.parentNode;
+        li.classList.remove("has-logo");
+        li.textContent = img.getAttribute("data-name");
+      });
+    });
 
     var form = document.getElementById("newsletter");
     if (form) {
