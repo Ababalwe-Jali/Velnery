@@ -17,12 +17,14 @@
     }
     requestAnimationFrame(step);
   }
-
-  if (!("IntersectionObserver" in window)) {
+  function showAll() {
     reveals.forEach(function (el) { el.classList.add("is-in"); });
     counters.forEach(count);
-    return;
   }
+
+  if (!("IntersectionObserver" in window)) { showAll(); return; }
+
+  document.documentElement.classList.add("has-js");   // only now are .reveal items allowed to start hidden
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
@@ -30,7 +32,8 @@
       if (e.target.hasAttribute("data-count")) count(e.target);
       io.unobserve(e.target);
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
   reveals.forEach(function (el, i) { el.style.transitionDelay = (i % 4) * 80 + "ms"; io.observe(el); });
   counters.forEach(function (el) { io.observe(el); });
+  setTimeout(showAll, 4000);   // safety net: nothing can stay hidden
 })();

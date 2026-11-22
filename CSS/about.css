@@ -87,9 +87,10 @@
 .ab-cta .btn-promo:hover { background: #333; border-color: #333; color: #fff; }
 
 /* Scroll reveal */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.is-in { opacity: 1; transform: none; }
+/* Hidden only once about.js has loaded (it adds .has-js), so content can never get stuck invisible */
+.has-js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.has-js .reveal.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .has-js .reveal { opacity: 1; transform: none; transition: none; }
   .ab-value, .ab-help-card, .ab-dept::before { transition: none; }
 }
