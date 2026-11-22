@@ -304,7 +304,7 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
 /* One image per page, picked by <body data-page="...">. Swap any URL for your own photo,
    e.g. url("../Assets/img/shop-hero.jpg"). */
 body[data-page="shop"]    .page-hero { background-image: url("../Assets/img/shops.jpg"); }
-body[data-page="deals"]   .page-hero { background-image: url("https://images.unsplash.com/photo-1760565030786-91526dff426c?auto=format&fit=crop&w=1800&q=80"); }
+body[data-page="deals"]   .page-hero { background-image: url("../Assets/img/deals.jpg"); }
 body[data-page="cart"]    .page-hero { background-image: url("https://images.unsplash.com/photo-1591586116988-62fe65164f8d?auto=format&fit=crop&w=1800&q=80"); }
 body[data-page="stores"]  .page-hero { background-image: url("../Assets/img/store.jpg"); }
 body[data-page="contact"] .page-hero { background-image: url("../Assets/img/contact.jpg"); }

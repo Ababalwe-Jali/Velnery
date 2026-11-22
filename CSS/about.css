@@ -6,7 +6,7 @@
 /* Hero */
 .ab-hero {
   position: relative; min-height: 78vh; display: flex; align-items: flex-end; color: #fff;
-  background: #333 url("../Assets/img/abou") center / cover no-repeat;
+  background: #333 url("../Assets/img/about.jpg") center / cover no-repeat;
 }
 .ab-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,.15) 0%, rgba(0,0,0,.75) 100%); }
 .ab-hero-inner { position: relative; padding-top: var(--band); padding-bottom: var(--band); }
