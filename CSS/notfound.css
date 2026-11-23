@@ -1,0 +1,57 @@
+/* VELNERY 404 page. Load after styles.css. */
+.nf-hero {
+  position: relative; display: flex; align-items: center; min-height: 70vh; padding: var(--band) 0; color: #fff; text-align: center;
+  background: #000 url("../Assets/img/notfound.jpg") center / cover no-repeat;
+}
+.nf-hero::before { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .68); }
+.nf-inner { position: relative; display: grid; gap: var(--md); justify-items: center; }
+
+.nf-code {
+  display: flex; gap: .08em; margin: 0; line-height: 1;
+  font-family: "Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
+  font-size: clamp(88px, 22vw, 220px); letter-spacing: .06em;
+}
+.nf-code span { display: inline-block; opacity: 0; transform: translateY(40%) scale(.6); animation: nf-pop .6s cubic-bezier(.2, 1.4, .4, 1) forwards; }
+.nf-code span:nth-child(2) { animation-delay: .12s; }
+.nf-code span:nth-child(3) { animation-delay: .24s; }
+@keyframes nf-pop { to { opacity: 1; transform: none; } }
+
+.nf-hero h1 { max-width: 18ch; }
+.nf-text { margin: 0; max-width: 520px; color: #ddd; }
+.nf-path { margin: 0; padding: 4px 12px; background: rgba(255, 255, 255, .12); font-size: 12px; color: #ccc; overflow-wrap: anywhere; max-width: 100%; }
+.nf-path[hidden] { display: none; }
+
+.nf-search { display: flex; gap: var(--xs); width: 100%; max-width: 520px; margin-top: var(--sm); }
+.nf-search input { flex: 1; min-width: 0; min-height: 48px; background: #1A1A1A; color: #fff; border: 1px solid #444; }
+.nf-search input::placeholder { color: #999; opacity: 1; }
+.nf-search input:focus { background: #fff; color: #000; border-color: #fff; }
+.nf-actions { display: flex; flex-wrap: wrap; gap: var(--sm); justify-content: center; }
+.nf-ghost { background: transparent; color: #fff; border: 1px solid #fff; }
+.nf-ghost:hover { background: #fff; color: #000; }
+@media (max-width: 480px) { .nf-search { flex-direction: column; } .nf-actions .btn { width: 100%; } .nf-actions { width: 100%; } }
+
+/* department tiles */
+.nf-depts { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--md); }
+@media (min-width: 900px) { .nf-depts { grid-template-columns: repeat(4, 1fr); } }
+.nf-dept { position: relative; display: flex; align-items: flex-end; min-height: 260px; padding: var(--lg); color: #fff; text-decoration: none; background: #555 center / cover no-repeat; overflow: hidden; }
+.nf-dept::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,.72) 100%); }
+.nf-dept:hover::before { background: linear-gradient(rgba(0,0,0,.1) 0%, rgba(0,0,0,.8) 100%); }
+.nf-dept span { position: relative; font-family: var(--font-display); font-size: 24px; }
+.nf-dept span::after { content: " →"; }
+.nf-food     { background-image: url("https://images.unsplash.com/photo-1591586116988-62fe65164f8d?auto=format&fit=crop&w=700&q=80"); }
+.nf-clothing { background-image: url("https://images.unsplash.com/photo-1603400521630-9f2de124b33b?auto=format&fit=crop&w=700&q=80"); }
+.nf-home     { background-image: url("https://images.unsplash.com/photo-1774927475366-7c4d31588d98?auto=format&fit=crop&w=700&q=80"); }
+.nf-beauty   { background-image: url("https://images.unsplash.com/photo-1762651356493-c492ca111a07?auto=format&fit=crop&w=700&q=80"); }
+
+/* help links */
+.nf-h2 { margin: var(--band) 0 var(--xl); }
+.nf-links { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--md); }
+@media (min-width: 700px) { .nf-links { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .nf-links { grid-template-columns: repeat(4, 1fr); } }
+.nf-links a { display: grid; gap: 2px; padding: var(--lg); border: 1px solid var(--hairline); background: #fff; color: #000; text-decoration: none; transition: background .15s, color .15s, border-color .15s; }
+.nf-links strong { font-family: var(--font-display); font-size: 18px; font-weight: 400; }
+.nf-links span { font-size: 14px; color: var(--body-strong); }
+.nf-links a:hover { background: #000; color: #fff; border-color: #000; }
+.nf-links a:hover span { color: #ccc; }
+
+@media (prefers-reduced-motion: reduce) { .nf-code span { animation: none; opacity: 1; transform: none; } .nf-links a { transition: none; } }

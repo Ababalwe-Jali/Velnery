@@ -11,13 +11,14 @@
 
   /* ---------- Storage ---------- */
   function load() { try { return JSON.parse(localStorage.getItem(KEY_LIST)) || []; } catch (e) { return []; } }
-  function save(list) { try { localStorage.setItem(KEY_LIST, JSON.stringify(list)); } catch (e) {} }
+  function save(list) { try { localStorage.setItem(KEY_LIST, JSON.stringify(list)); } catch (e) {} window.dispatchEvent(new Event("addresschange")); }
   function activeId() { try { return localStorage.getItem(KEY_ACTIVE) || ""; } catch (e) { return ""; } }
   function setActive(id) {
     try { localStorage.setItem(KEY_ACTIVE, id || ""); } catch (e) {}
     var a = find(id);
     try { localStorage.setItem(KEY_TEXT, a ? short(a) : ""); } catch (e) {}
     updateHeader();
+    window.dispatchEvent(new Event("addresschange"));
   }
   function find(id) { return load().filter(function (a) { return a.id === id; })[0]; }
   function short(a) { return a.suburb + ", " + a.postal; }

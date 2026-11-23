@@ -1,0 +1,99 @@
+/* VELNERY support pages (FAQ, Delivery, Returns). Load after styles.css. */
+body[data-page="faq"] .page-hero { background-image: url("../Assets/img/faq.jpg"); }
+body[data-page="delivery"] .page-hero { background-image: url("../Assets/img/delivery.png"); }
+body[data-page="returns"] .page-hero { background-image: url("../Assets/img/returns.jpg"); }
+
+.sp-narrow { max-width: 820px; }
+.sp-h { margin: 0 0 var(--lg); }
+.sp-grid2 { display: grid; gap: var(--xl); }
+@media (min-width: 860px) { .sp-grid2 { grid-template-columns: 1fr 1fr; gap: var(--xxl); } }
+.sp-top { align-items: start; }
+.sp-alt { background: #f5f5f5; }
+.sp-small { font-size: 13px; }
+.sp-banner { margin: 0 0 var(--xl); padding: var(--md) var(--lg); background: #000; color: #fff; font-size: 15px; }
+
+/* FAQ */
+.sp-search { margin-bottom: var(--md); }
+.sp-search input { width: 100%; min-height: 52px; padding: 0 var(--md); border: 1px solid #000; background: #fff; font: inherit; }
+.sp-list { border-top: 1px solid #000; }
+.sp-q { border-bottom: 1px solid var(--hairline); background: #fff; }
+.sp-q[hidden] { display: none; }
+.sp-q summary { list-style: none; cursor: pointer; padding: 18px 44px 18px 4px; font-weight: 700; font-size: 16px; position: relative; }
+.sp-q summary::-webkit-details-marker { display: none; }
+.sp-q summary::after { content: "+"; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 24px; font-weight: 400; transition: transform .2s; }
+.sp-q[open] summary::after { content: "\2212"; }
+.sp-q summary:hover { background: #f5f5f5; }
+.sp-q summary:focus-visible { outline: 2px solid #000; outline-offset: -2px; }
+.sp-q p { margin: 0; padding: 0 44px 20px 4px; color: var(--body-strong); line-height: 1.6; }
+.sp-none { padding: var(--xl) 0; }
+.sp-none[hidden] { display: none; }
+.sp-none h3 { margin: 0 0 var(--xs); }
+#faq-count { margin: 0 0 var(--sm); }
+
+/* boxes + ticks */
+.sp-box { background: #fff; border: 1px solid var(--hairline); padding: var(--xl); }
+.sp-alt .sp-box { border-color: #ddd; }
+.sp-box h3 { margin: 0 0 var(--sm); font-size: 20px; }
+.sp-big { margin: 0 0 var(--md); font-family: var(--font-display); font-size: 40px; line-height: 1.1; }
+.sp-big small { font-family: inherit; font-size: 14px; color: var(--body-strong); margin-left: 8px; }
+.sp-ticks, .sp-cross { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.sp-ticks li, .sp-cross li { position: relative; padding-left: 28px; line-height: 1.5; }
+.sp-ticks li::before { content: ""; position: absolute; left: 3px; top: .35em; width: 12px; height: 6px; border-left: 2px solid #1b6e2d; border-bottom: 2px solid #1b6e2d; transform: rotate(-45deg); }
+.sp-cross li::before, .sp-cross li::after { content: ""; position: absolute; left: 2px; top: .75em; width: 14px; height: 2px; background: #c8102e; }
+.sp-cross li::before { transform: rotate(45deg); }
+.sp-cross li::after { transform: rotate(-45deg); }
+
+/* steps */
+.sp-steps { list-style: none; margin: 0 0 var(--xl); padding: 0; display: grid; gap: var(--md); grid-template-columns: 1fr; }
+@media (min-width: 640px) { .sp-steps { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .sp-steps { grid-template-columns: repeat(4, 1fr); } }
+.sp-steps li { padding: var(--lg); background: #fff; border: 1px solid var(--hairline); display: grid; gap: 6px; align-content: start; }
+.sp-steps span { display: grid; place-items: center; width: 34px; height: 34px; background: #000; color: #fff; font-weight: 700; }
+.sp-steps p { margin: 0; color: var(--body-strong); font-size: 14px; }
+
+/* calculator */
+.sp-calc { display: flex; gap: var(--sm); margin: var(--md) 0; max-width: 420px; }
+.sp-calc input { flex: 1; min-width: 0; min-height: 48px; padding: 0 var(--md); border: 1px solid #000; background: #fff; font: inherit; }
+.sp-result { margin: 0; font-weight: 700; min-height: 1.5em; }
+.sp-result.is-err { color: #c8102e; }
+
+/* table */
+.sp-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+.sp-table th, .sp-table td { padding: 12px var(--sm); text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+.sp-table thead th { border-bottom: 1px solid #000; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.sp-table tbody th { font-weight: 600; }
+
+/* return form */
+.sp-form { display: grid; gap: var(--md); background: #fff; border: 1px solid var(--hairline); padding: var(--xl); }
+@media (max-width: 520px) { .sp-form { padding: var(--md); } }
+.sp-form[hidden], .sp-done[hidden], .sp-items[hidden] { display: none; }
+.sp-field { display: grid; gap: 6px; border: 0; margin: 0; padding: 0; min-width: 0; }
+.sp-field label, .sp-field legend { font-size: 13px; font-weight: 700; padding: 0; }
+.sp-field label small { font-weight: 400; color: #777; }
+.sp-field input[type="text"], .sp-field input[type="email"], .sp-field textarea, .sp-field select { width: 100%; padding: 12px var(--sm); min-height: 48px; border: 1px solid #000; background: #fff; font: inherit; border-radius: 0; }
+.sp-field textarea { resize: vertical; }
+.sp-field input:focus-visible, .sp-field textarea:focus-visible, .sp-field select:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+.sp-field .is-invalid { border-color: #c8102e; }
+.sp-err { margin: 0; font-size: 12.5px; color: #c8102e; }
+.sp-err:empty { display: none; }
+.sp-items label, .sp-radios label { display: flex; align-items: center; gap: 10px; font-weight: 400; font-size: 14px; min-height: 36px; cursor: pointer; }
+.sp-items input, .sp-radios input { width: 18px; height: 18px; accent-color: #000; flex: none; }
+.sp-radios { display: flex; flex-wrap: wrap; gap: var(--md); }
+.sp-radios legend { width: 100%; margin-bottom: 6px; }
+.sp-form .btn { justify-self: start; }
+
+.sp-done { display: grid; gap: var(--sm); justify-items: start; background: #fff; border: 1px solid var(--hairline); padding: var(--xl); }
+.sp-done h3 { margin: 0; font-size: 24px; }
+.sp-done p { margin: 0; overflow-wrap: anywhere; }
+.sp-tick { display: grid; place-items: center; width: 52px; height: 52px; background: #1b6e2d; }
+.sp-tick svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: square; }
+
+/* help cards */
+.sp-help { border-top: 1px solid var(--hairline); }
+.sp-cards { list-style: none; margin: var(--lg) 0 0; padding: 0; display: grid; gap: var(--sm); grid-template-columns: 1fr; }
+@media (min-width: 560px) { .sp-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .sp-cards { grid-template-columns: repeat(4, 1fr); } }
+.sp-cards a { display: grid; gap: 4px; padding: var(--lg); border: 1px solid #000; text-decoration: none; color: #000; height: 100%; transition: background .15s, color .15s; }
+.sp-cards a span { font-size: 13px; color: var(--body-strong); }
+.sp-cards a:hover { background: #000; color: #fff; }
+.sp-cards a:hover span { color: #ddd; }

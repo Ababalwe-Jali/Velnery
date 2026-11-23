@@ -275,25 +275,25 @@
     ];
     var colHelp = [
       { label: "Contact us",       href: root + "HTML/contact.html" },
-      { label: "Track your order", href: root + "HTML/cart.html" },
-      { label: "Delivery info",    href: root + "index.html#delivery" },
-      { label: "Returns & refunds",href: root + "HTML/contact.html" },
-      { label: "FAQs",             href: root + "HTML/contact.html" },
+      { label: "Track your order", href: root + "HTML/account.html#orders" },
+      { label: "Delivery info",    href: root + "HTML/delivery.html" },
+      { label: "Returns & refunds",href: root + "HTML/returns.html" },
+      { label: "FAQs",             href: root + "HTML/faq.html" },
       { label: "Find a store",     href: root + "HTML/stores.html" }
     ];
     var colServices = [
-      { label: "Payflex",        href: root + "index.html#payflex" },
-      { label: "Rewards",        href: root + "index.html#rewards" },
-      { label: "Gift cards",     href: root + "index.html#giftcards" },
+      { label: "Payflex",        href: root + "404.html" },
+      { label: "Rewards",        href: root + "404.html" },
+      { label: "Gift cards",     href: root + "404.html" },
       { label: "Wishlist",       href: root + "HTML/wishlist.html" },
       { label: "Your cart",      href: root + "HTML/cart.html" },
       { label: "Sign in",        href: root + "HTML/signin.html" }
     ];
     var colCompany = [
       { label: "About us",       href: root + "HTML/about.html" },
-      { label: "Careers",        href: root + "HTML/about.html" },
-      { label: "Sustainability", href: root + "HTML/about.html" },
-      { label: "Media & press",  href: root + "HTML/contact.html" },
+      { label: "Careers",        href: root + "404.html" },
+      { label: "Sustainability", href: root + "HTML/sustainability.html" },
+      { label: "Media & press",  href: root + "HTML/press.html" },
       { label: "Store locations",href: root + "HTML/stores.html" }
     ];
 
@@ -370,10 +370,10 @@
           '<div class="footer-bottom-left">' +
             "<span>&copy; " + year + " Velnery. All rights reserved.</span>" +
             '<ul class="legal-links">' +
-              '<li><a href="' + root + 'HTML/about.html">Privacy policy</a></li>' +
-              '<li><a href="' + root + 'HTML/about.html">Terms &amp; conditions</a></li>' +
-              '<li><a href="' + root + 'HTML/about.html">Cookie policy</a></li>' +
-              '<li><a href="' + root + 'HTML/contact.html">Accessibility</a></li>' +
+              '<li><a href="' + root + 'HTML/privacy.html">Privacy policy</a></li>' +
+              '<li><a href="' + root + 'HTML/terms.html">Terms &amp; conditions</a></li>' +
+              '<li><a href="' + root + 'HTML/cookies.html">Cookie policy</a></li>' +
+              '<li><a href="' + root + '404.html">Accessibility</a></li>' +
             "</ul>" +
           "</div>" +
           '<div class="footer-bottom-right">' +

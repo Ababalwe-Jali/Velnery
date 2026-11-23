@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My account – VELNERY</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/auth.css">
+  <link rel="stylesheet" href="../CSS/address.css">
+  <link rel="stylesheet" href="../CSS/account.css">
+</head>
+<body data-root="../" data-page="account">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="display-lg">My account</h1>
+        <p id="ac-sub">Orders, addresses and your details.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Signed out -->
+        <div class="ac-guest" id="ac-guest" hidden>
+          <div class="ac-card">
+            <h2>Sign in to your account</h2>
+            <p class="muted">See your orders, manage addresses and check out faster.</p>
+            <div class="ac-row">
+              <button class="btn" type="button" id="ac-signin">Sign in</button>
+              <button class="btn btn-secondary" type="button" id="ac-signup">Create account</button>
+            </div>
+          </div>
+          <div class="ac-card">
+            <h2>Track an order</h2>
+            <p class="muted">Enter your order number, for example VEL-123456.</p>
+            <form class="ac-track" id="ac-track-form" novalidate>
+              <label class="sr-only" for="ac-track-id">Order number</label>
+              <input id="ac-track-id" type="text" placeholder="VEL-123456" autocomplete="off">
+              <button class="btn" type="submit">Track</button>
+            </form>
+            <p class="ac-err" id="ac-track-err" role="alert"></p>
+            <div id="ac-track-result"></div>
+          </div>
+        </div>
+
+        <!-- Signed in -->
+        <div class="ac-layout" id="ac-app" hidden>
+          <nav class="ac-nav" aria-label="Account sections">
+            <a href="#overview" data-tab="overview">Overview</a>
+            <a href="#orders" data-tab="orders">Order history</a>
+            <a href="#addresses" data-tab="addresses">Addresses</a>
+            <a href="#details" data-tab="details">My details</a>
+            <button type="button" class="ac-signout" id="ac-signout">Sign out</button>
+          </nav>
+
+          <div class="ac-main">
+
+            <!-- Overview -->
+            <section class="ac-panel" id="tab-overview" aria-labelledby="h-overview">
+              <h2 id="h-overview">Hi, <span id="ov-name"></span></h2>
+              <p class="muted" id="ov-email"></p>
+              <div class="ac-stats">
+                <a href="#orders" class="ac-stat"><strong id="st-orders">0</strong><span>Orders</span></a>
+                <a href="#addresses" class="ac-stat"><strong id="st-addr">0</strong><span>Saved addresses</span></a>
+                <a href="wishlist.html" class="ac-stat"><strong id="st-wish">0</strong><span>Wishlist items</span></a>
+              </div>
+              <h3 class="ac-h3">Latest order</h3>
+              <div id="ov-latest"></div>
+              <h3 class="ac-h3">Quick links</h3>
+              <div class="ac-links">
+                <a href="shop.html">Continue shopping</a>
+                <a href="wishlist.html">View wishlist</a>
+                <a href="cart.html">Go to cart</a>
+                <a href="contact.html">Contact support</a>
+              </div>
+            </section>
+
+            <!-- Orders -->
+            <section class="ac-panel" id="tab-orders" aria-labelledby="h-orders" hidden>
+              <h2 id="h-orders">Order history</h2>
+              <form class="ac-track ac-track-inline" id="ac-find-form" novalidate>
+                <label class="sr-only" for="ac-find-id">Find an order</label>
+                <input id="ac-find-id" type="search" placeholder="Find an order number">
+              </form>
+              <div id="ord-list" class="ac-orders"></div>
+            </section>
+
+            <!-- Addresses -->
+            <section class="ac-panel" id="tab-addresses" aria-labelledby="h-addresses" hidden>
+              <div class="ac-head"><h2 id="h-addresses">Saved addresses</h2><button class="btn" type="button" id="addr-manage">Add or edit addresses</button></div>
+              <div id="addr-list" class="ac-addrs"></div>
+            </section>
+
+            <!-- Details -->
+            <section class="ac-panel" id="tab-details" aria-labelledby="h-details" hidden>
+              <h2 id="h-details">My details</h2>
+              <form class="ac-form" id="det-form" novalidate>
+                <div class="ac-field"><label for="det-name">Full name</label><input id="det-name" type="text" autocomplete="name"><p class="ac-err" id="det-name-err" role="alert"></p></div>
+                <div class="ac-field"><label for="det-email">Email address</label><input id="det-email" type="email" disabled><small class="muted">Your email is your sign-in and can't be changed here.</small></div>
+                <p class="ac-ok" id="det-ok" role="status"></p>
+                <button class="btn" type="submit">Save changes</button>
+              </form>
+
+              <h3 class="ac-h3">Change password</h3>
+              <form class="ac-form" id="pw-form" novalidate>
+                <div class="ac-field"><label for="pw-cur">Current password</label><input id="pw-cur" type="password" autocomplete="current-password"><p class="ac-err" id="pw-cur-err" role="alert"></p></div>
+                <div class="ac-field"><label for="pw-new">New password</label><input id="pw-new" type="password" autocomplete="new-password" placeholder="At least 8 characters"><p class="ac-err" id="pw-new-err" role="alert"></p></div>
+                <div class="ac-field"><label for="pw-conf">Confirm new password</label><input id="pw-conf" type="password" autocomplete="new-password"><p class="ac-err" id="pw-conf-err" role="alert"></p></div>
+                <p class="ac-ok" id="pw-ok" role="status"></p>
+                <button class="btn" type="submit">Update password</button>
+              </form>
+            </section>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../JavaScript/main.js"></script>
+  <script src="../JavaScript/auth.js"></script>
+  <script src="../JavaScript/address.js"></script>
+  <script src="../JavaScript/products.js"></script>
+  <script src="../JavaScript/account.js"></script>
+</body>
+</html>

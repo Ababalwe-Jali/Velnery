@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found – VELNERY</title>
+  <meta name="robots" content="noindex">
+  <!-- Makes every link below work no matter how deep the broken URL was, once the site is online.
+       Locally (file://) it does nothing. GitHub Pages project sites (user.github.io/repo/) are handled too. -->
+  <script>
+    (function () {
+      if (location.protocol.indexOf("http") !== 0) return;
+      var base = "/";
+      if (/\.github\.io$/.test(location.hostname)) base = "/" + (location.pathname.split("/")[1] || "") + "/";
+      document.write('<base href="' + base + '">');
+    })();
+  </script>
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/auth.css">
+  <link rel="stylesheet" href="CSS/address.css">
+  <link rel="stylesheet" href="CSS/notfound.css">
+</head>
+<body data-root="" data-page="404">
+  <div id="site-header"></div>
+
+  <main id="main">
+
+    <section class="nf-hero" aria-labelledby="nf-title">
+      <div class="container nf-inner">
+        <p class="nf-code" aria-hidden="true"><span>4</span><span>0</span><span>4</span></p>
+        <h1 class="display-md" id="nf-title">We can't find that page</h1>
+        <p class="nf-text">The link may be broken, or the page may have moved. Try searching, or head to one of the places below.</p>
+        <p class="nf-path" id="nf-path" hidden></p>
+
+        <form class="nf-search" action="HTML/shop.html" method="get" role="search">
+          <label class="sr-only" for="nf-q">Search products</label>
+          <input id="nf-q" type="search" name="q" placeholder="Search for products" autocomplete="off">
+          <button class="btn btn-promo" type="submit">Search</button>
+        </form>
+
+        <div class="nf-actions">
+          <a class="btn btn-promo" href="index.html">Back to home</a>
+          <a class="btn nf-ghost" href="HTML/shop.html">Browse the shop</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="nf-pop">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="display-md" id="nf-pop">Popular departments</h2>
+          <a href="HTML/shop.html" class="body-md">View all &rarr;</a>
+        </div>
+        <div class="nf-depts">
+          <a class="nf-dept nf-food" href="HTML/shop.html?cat=Food"><span>Food</span></a>
+          <a class="nf-dept nf-clothing" href="HTML/shop.html?cat=Clothing"><span>Clothing</span></a>
+          <a class="nf-dept nf-home" href="HTML/shop.html?cat=Home"><span>Home</span></a>
+          <a class="nf-dept nf-beauty" href="HTML/shop.html?cat=Beauty"><span>Beauty</span></a>
+        </div>
+
+        <h2 class="display-md nf-h2">Need a hand?</h2>
+        <ul class="nf-links">
+          <li><a href="HTML/deals.html"><strong>This week's deals</strong><span>Save on everyday favourites</span></a></li>
+          <li><a href="HTML/stores.html"><strong>Find a store</strong><span>See where to shop in person</span></a></li>
+          <li><a href="HTML/account.html#orders"><strong>Track an order</strong><span>Check where your order is</span></a></li>
+          <li><a href="HTML/contact.html"><strong>Contact us</strong><span>We're happy to help</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="JavaScript/main.js"></script>
+  <script src="JavaScript/auth.js"></script>
+  <script src="JavaScript/address.js"></script>
+  <script>
+    // show the address that wasn't found (text only, never inserted as HTML)
+    (function () {
+      var el = document.getElementById("nf-path");
+      var p = location.pathname + location.search;
+      if (el && location.protocol.indexOf("http") === 0 && p.length > 1 && !/404\.html$/.test(p)) {
+        el.textContent = "Couldn't find: " + decodeURIComponent(p).slice(0, 80);
+        el.hidden = false;
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Returns & refunds – VELNERY</title>
+  <meta name="description" content="VELNERY 30-day returns policy, what can be returned, refund times and how to request a return.">
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/auth.css">
+  <link rel="stylesheet" href="../CSS/address.css">
+  <link rel="stylesheet" href="../CSS/support.css">
+</head>
+<body data-root="../" data-page="returns">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="display-lg">Returns &amp; refunds</h1>
+        <p>Easy returns within 30 days of delivery.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="r-sum">
+      <div class="container">
+        <p class="sp-banner"><strong>30-day returns.</strong> Changed your mind? Send it back within 30 days of delivery.</p>
+        <h2 class="display-md sp-h" id="r-sum">How returns work</h2>
+        <ol class="sp-steps">
+          <li><span>1</span><strong>Request a return</strong><p>Use the form below with your order number.</p></li>
+          <li><span>2</span><strong>Pack it up</strong><p>Include everything in its original packaging.</p></li>
+          <li><span>3</span><strong>Send it back</strong><p>Drop it off or arrange a collection.</p></li>
+          <li><span>4</span><strong>Get your refund</strong><p>Paid within 5 to 7 working days.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section sp-alt" aria-labelledby="r-elig">
+      <div class="container sp-grid2">
+        <article class="sp-box"><h3 id="r-elig">What you can return</h3><ul class="sp-ticks"><li>Clothing that is unworn, unwashed and has its tags</li><li>Homeware in its original packaging</li><li>Unopened beauty and personal care items</li><li>Faulty or damaged items of any kind</li></ul></article>
+        <article class="sp-box"><h3>What we can't take back</h3><ul class="sp-cross"><li>Perishable food and fresh produce</li><li>Opened beauty and personal care products</li><li>Gift cards</li><li>Items damaged after delivery</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="r-form-t" id="return-form">
+      <div class="container sp-grid2 sp-top">
+        <div>
+          <h2 class="display-md sp-h" id="r-form-t">Request a return</h2>
+          <p class="muted">Tell us what you're sending back. We'll email you the next steps within one working day.</p>
+          <table class="sp-table sp-small">
+            <thead><tr><th scope="col">Refund type</th><th scope="col">Timing</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Card</th><td>5&ndash;7 working days</td></tr>
+              <tr><th scope="row">Instant EFT</th><td>5&ndash;7 working days</td></tr>
+              <tr><th scope="row">Payflex</th><td>Instalments cancelled or refunded</td></tr>
+              <tr><th scope="row">Gift card</th><td>Back to your gift card</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <form class="sp-form" id="ret-form" novalidate>
+            <div class="sp-field"><label for="ret-order">Order number</label><input id="ret-order" type="text" placeholder="VEL-123456" autocomplete="off"><p class="sp-err" id="ret-order-err" role="alert"></p></div>
+            <div class="sp-field"><label for="ret-email">Email address</label><input id="ret-email" type="email" placeholder="you@example.com" autocomplete="email"><p class="sp-err" id="ret-email-err" role="alert"></p></div>
+            <fieldset class="sp-field sp-items" id="ret-items" hidden><legend>Items in this order</legend><div id="ret-items-list"></div></fieldset>
+            <div class="sp-field"><label for="ret-what">What are you returning?</label><textarea id="ret-what" rows="2" placeholder="e.g. Merino wool jersey, size M"></textarea><p class="sp-err" id="ret-what-err" role="alert"></p></div>
+            <div class="sp-field"><label for="ret-reason">Reason for return</label>
+              <select id="ret-reason"><option value="">Select a reason</option><option>It doesn't fit</option><option>Not what I expected</option><option>Changed my mind</option><option>Arrived damaged or faulty</option><option>Wrong item received</option><option>Other</option></select>
+              <p class="sp-err" id="ret-reason-err" role="alert"></p></div>
+            <fieldset class="sp-field sp-radios"><legend>What would you like?</legend>
+              <label><input type="radio" name="ret-res" value="Refund" checked> Refund</label>
+              <label><input type="radio" name="ret-res" value="Exchange"> Exchange</label></fieldset>
+            <div class="sp-field"><label for="ret-notes">Anything else? <small>(optional)</small></label><textarea id="ret-notes" rows="2" maxlength="300"></textarea></div>
+            <button class="btn" type="submit">Submit return request</button>
+          </form>
+
+          <div class="sp-done" id="ret-done" hidden>
+            <span class="sp-tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+            <h3>Return request received</h3>
+            <p>Your reference is <strong id="ret-ref"></strong>. We'll email <strong id="ret-mail"></strong> with the next steps within one working day.</p>
+            <p class="muted">Keep your items in their original packaging until you hear from us.</p>
+            <button class="btn btn-secondary" type="button" id="ret-again">Submit another request</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sp-help" aria-labelledby="help-t">
+      <div class="container">
+        <h2 class="display-md" id="help-t">Still need help?</h2>
+        <ul class="sp-cards">
+          <li><a href="contact.html"><strong>Contact us</strong><span>Mon&ndash;Fri 8:00&ndash;18:00, Sat 9:00&ndash;14:00</span></a></li>
+          <li><a href="faq.html"><strong>FAQs</strong><span>Quick answers to common questions</span></a></li>
+          <li><a href="delivery.html"><strong>Delivery info</strong><span>Costs, times and tracking</span></a></li>
+          <li><a href="returns.html"><strong>Returns &amp; refunds</strong><span>Easy returns within 30 days</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../JavaScript/main.js"></script>
+  <script src="../JavaScript/auth.js"></script>
+  <script src="../JavaScript/address.js"></script>
+  <script src="../JavaScript/support.js"></script>
+</body>
+</html>

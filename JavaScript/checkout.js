@@ -184,6 +184,7 @@
       var ship = shipValue(), t = totals(subtotal, ship), pay = payValue(), num = val("co-card").replace(/\s/g, "");
       var order = {
         id: "VEL-" + Date.now().toString().slice(-6) + Math.floor(Math.random() * 90 + 10),
+        account: user ? user.email : "",
         date: new Date().toISOString(),
         customer: { name: val("co-name"), email: val("co-email"), phone: val("co-phone") },
         address: { street: val("co-street"), unit: val("co-unit"), suburb: val("co-suburb"), city: val("co-city"), province: val("co-province"), postal: val("co-postal"), notes: val("co-notes") },

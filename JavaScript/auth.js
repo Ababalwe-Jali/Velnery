@@ -65,8 +65,8 @@
   }
   /* Logo files in Assets/icon. Rename these to match your file names (png, svg, webp all work). */
   var SOCIAL_ICONS = {
-    Google:   "Assets/icon/search.png",
-    Apple:    "Assets/icon/apple-logo.png",
+    Google:   "Assets/icon/google.png",
+    Apple:    "Assets/icon/apple.png",
     Facebook: "Assets/icon/facebook.png"
   };
   var LETTER = { Google: "G", Apple: "A", Facebook: "f" };
@@ -101,7 +101,7 @@
         '<form class="au-view" data-pane="signin" novalidate>' +
           '<h2 class="au-title" id="au-title">Welcome back</h2>' +
           '<p class="au-sub">Sign in to see your orders, wishlist and saved details.</p>' +
-          field("si-email", "Email address", "email", 'autocomplete="email" placeholder="someone@example.com"') +
+          field("si-email", "Email address", "email", 'autocomplete="email" placeholder="you@example.com"') +
           pwField("si-pw", "Password", "current-password") +
           '<div class="au-row">' +
             '<label class="au-check"><input type="checkbox" id="si-remember" checked><span>Keep me signed in</span></label>' +
@@ -117,8 +117,8 @@
         '<form class="au-view" data-pane="signup" novalidate>' +
           '<h2 class="au-title">Create your account</h2>' +
           '<p class="au-sub">Join VELNERY for faster checkout and member-only offers.</p>' +
-          field("su-name", "Full name", "text", 'autocomplete="name" placeholder="Enter your full names"') +
-          field("su-email", "Email address", "email", 'autocomplete="email" placeholder="someone@example.com"') +
+          field("su-name", "Full name", "text", 'autocomplete="name" placeholder="Your name"') +
+          field("su-email", "Email address", "email", 'autocomplete="email" placeholder="you@example.com"') +
           pwField("su-pw", "Password", "new-password") +
           '<div class="au-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div>' +
           '<label class="au-check au-terms"><input type="checkbox" id="su-terms"><span>I agree to the <a href="about.html">Terms</a> and <a href="about.html">Privacy Policy</a>.</span></label>' +
@@ -144,7 +144,8 @@
           '<span class="au-avatar" id="au-avatar" aria-hidden="true"></span>' +
           '<h2 class="au-title" id="au-done-title">You\'re signed in</h2>' +
           '<p class="au-sub" id="au-done-email"></p>' +
-          '<a class="au-submit au-submit-link" href="#" id="au-continue" data-close><span>Continue shopping</span></a>' +
+          '<a class="au-submit au-submit-link" href="#" id="au-account"><span>My account</span></a>' +
+          '<a class="au-outline au-submit-link" href="#" id="au-continue" data-close style="display:flex;align-items:center;justify-content:center;text-decoration:none"><span>Continue shopping</span></a>' +
           '<button type="button" class="au-outline" id="au-signout">Sign out</button>' +
         '</div>' +
       '</section>' +
@@ -221,6 +222,7 @@
     root.querySelector("#au-avatar").textContent = (u.name || u.email || "?").charAt(0).toUpperCase();
     root.querySelector("#au-done-title").textContent = "Hi, " + (u.name || "there").split(" ")[0];
     root.querySelector("#au-done-email").textContent = u.email;
+    root.querySelector("#au-account").href = (document.body.getAttribute("data-root") || "") + "HTML/account.html";
   }
 
   /* ---------- Errors & validation ---------- */
@@ -277,7 +279,7 @@
     }
     var soc = t.closest("[data-social]");
     if (soc) { toast(soc.getAttribute("data-social") + " sign-in needs to be connected to your login provider."); return; }
-    if (t.closest("#au-signout")) { clearUser(); updateHeader(); toast("You've been signed out."); closeDialog(); }
+    if (t.closest("#au-signout")) { clearUser(); updateHeader(); window.dispatchEvent(new Event("authchange")); toast("You've been signed out."); closeDialog(); }
   }
 
   function onSubmit(e) {
@@ -325,6 +327,7 @@
   function done(u, remember) {
     setUser(u, remember);
     updateHeader();
+    window.dispatchEvent(new Event("authchange"));
     fillDone(u);
     show("done");
   }
@@ -354,7 +357,9 @@
   function authLink(t) {
     return t && t.closest ? t.closest('a[href$="signin.html"], a[href$="signup.html"], [data-auth]') : null;
   }
+  function siteRoot() { return document.body.getAttribute("data-root") || ""; }
   function openFrom(a) {
+    if (getUser() && /signin\.html$/.test(a.getAttribute("href") || "")) { window.location.href = siteRoot() + "HTML/account.html"; return; }   // signed in: the header link opens My account
     var which = a.getAttribute("data-auth") || (/signup\.html$/.test(a.getAttribute("href") || "") ? "signup" : "signin");
     openDialog(which);
   }

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Media & press – VELNERY</title>
+  <meta name="description" content="VELNERY news, brand guidelines and media contact details.">
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/auth.css">
+  <link rel="stylesheet" href="../CSS/address.css">
+  <link rel="stylesheet" href="../CSS/company.css">
+</head>
+<body data-root="../" data-page="press">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="display-lg">Media &amp; press</h1>
+        <p>News, brand guidelines and how to reach our team.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="p-about">
+      <div class="container">
+        <div class="cp-split">
+          <div>
+            <h2 class="display-md cp-h" id="p-about">About VELNERY</h2>
+            <p class="cp-lead">VELNERY is a South African online store for fashion, home and living, beauty and food, with simple pricing, fast delivery and easy returns.</p>
+            <p>Our aim is to make everyday shopping feel considered and effortless. We pair a clean, uncluttered shop with the service people expect from a trusted retailer: free delivery over R600, 30-day returns and flexible payment with Payflex.</p>
+          </div>
+          <dl class="cp-facts">
+            <div><dt>Founded</dt><dd>2026</dd></div>
+            <div><dt>Based in</dt><dd>South Africa</dd></div>
+            <div><dt>Categories</dt><dd>Fashion, Home &amp; Living, Beauty, Food</dd></div>
+            <div><dt>Delivery</dt><dd>Nationwide</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cp-alt" aria-labelledby="p-news">
+      <div class="container">
+        <h2 class="display-md cp-h" id="p-news">Latest news</h2>
+        <div class="cp-filter toolbar" role="group" aria-label="News type">
+          <button type="button" class="chip" data-f="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-f="release" aria-pressed="false">Press releases</button>
+          <button type="button" class="chip" data-f="company" aria-pressed="false">Company news</button>
+        </div>
+        <ul class="cp-news" id="cp-news">
+          <li data-t="release"><time datetime="2026-11-03">3 Nov 2026</time><span class="cp-tag">Press release</span><h3>VELNERY launches nationwide delivery</h3><p>Customers across South Africa can now shop VELNERY with free standard delivery on orders over R600.</p></li>
+          <li data-t="company"><time datetime="2026-10-14">14 Oct 2026</time><span class="cp-tag">Company news</span><h3>Payflex now available at checkout</h3><p>Shoppers can split purchases into four interest-free payments.</p></li>
+          <li data-t="release"><time datetime="2026-09-22">22 Sep 2026</time><span class="cp-tag">Press release</span><h3>New Home &amp; Living range arrives for summer</h3><p>A new collection of homeware and furniture joins the store.</p></li>
+          <li data-t="company"><time datetime="2026-08-05">5 Aug 2026</time><span class="cp-tag">Company news</span><h3>Easier returns for every order</h3><p>A new online returns form makes sending items back quick and simple.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="p-brand">
+      <div class="container">
+        <h2 class="display-md cp-h" id="p-brand">Brand guidelines</h2>
+        <p class="cp-lead">Please use the VELNERY name and logo as shown below.</p>
+        <div class="cp-grid3">
+          <article class="cp-card"><h3>Logo</h3><div class="cp-logo"><img src="../Assets/icon/velnery-logo.png" alt="VELNERY logo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'cp-logo-text',textContent:'VELNERY'}))"></div><ul class="cp-list"><li>Always spell it VELNERY in capitals</li><li>Leave clear space around the logo</li><li>Do not stretch, recolour or add effects</li></ul></article>
+          <article class="cp-card"><h3>Colours</h3><div class="cp-swatches"><span style="--c:#000"><b>Black</b>#000000</span><span style="--c:#fff" class="is-light"><b>White</b>#FFFFFF</span><span style="--c:#f5f5f5" class="is-light"><b>Light grey</b>#F5F5F5</span></div><p>A flat, black and white palette with sharp corners.</p></article>
+          <article class="cp-card"><h3>Photography</h3><p>Natural light, simple backgrounds and real everyday settings. Images should feel clean and honest, never heavily filtered.</p><ul class="cp-list"><li>Credit VELNERY when publishing</li><li>No editing of product images</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cp-alt" aria-labelledby="p-contact" id="contact">
+      <div class="container cp-split cp-top">
+        <div>
+          <h2 class="display-md cp-h" id="p-contact">Media enquiries</h2>
+          <p>Journalists, bloggers and creators: send us your question and we will reply within one working day.</p>
+          <ul class="cp-list">
+            <li>Email: <a href="mailto:velnery@gmail.com">velnery@gmail.com</a></li>
+            <li>Phone: 0800 210 4329</li>
+            <li>Hours: Mon&ndash;Fri 8:00&ndash;18:00, Sat 9:00&ndash;14:00</li>
+          </ul>
+        </div>
+        <div>
+          <form class="cp-form" id="media-form" novalidate>
+            <div class="cp-field"><label for="m-name">Your name</label><input id="m-name" type="text" autocomplete="name"><p class="cp-err" id="m-name-err" role="alert"></p></div>
+            <div class="cp-field"><label for="m-outlet">Publication or outlet <small>(optional)</small></label><input id="m-outlet" type="text"></div>
+            <div class="cp-field"><label for="m-email">Email address</label><input id="m-email" type="email" autocomplete="email"><p class="cp-err" id="m-email-err" role="alert"></p></div>
+            <div class="cp-field"><label for="m-topic">Topic</label><select id="m-topic"><option value="">Select a topic</option><option>Interview request</option><option>Product or sample request</option><option>Press image request</option><option>Other</option></select><p class="cp-err" id="m-topic-err" role="alert"></p></div>
+            <div class="cp-field"><label for="m-msg">Message</label><textarea id="m-msg" rows="4"></textarea><p class="cp-err" id="m-msg-err" role="alert"></p></div>
+            <button class="btn" type="submit">Send enquiry</button>
+          </form>
+          <div class="cp-done" id="media-done" hidden>
+            <h3>Thank you</h3>
+            <p>Your email app should have opened with your message ready to send. If it did not, email us at <a href="mailto:velnery@gmail.com">velnery@gmail.com</a>.</p>
+            <button class="btn btn-secondary" type="button" id="media-again">Write another</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../JavaScript/main.js"></script>
+  <script src="../JavaScript/auth.js"></script>
+  <script src="../JavaScript/address.js"></script>
+  <script src="../JavaScript/company.js"></script>
+</body>
+</html>

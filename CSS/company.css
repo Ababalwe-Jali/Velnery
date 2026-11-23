@@ -1,0 +1,87 @@
+/* VELNERY company pages (Media & press, Sustainability). Load after styles.css. */
+body[data-page="press"] .page-hero { background-image: url("../Assets/img/press.jpg"); }
+body[data-page="sustainability"] .page-hero { background-image: url("../Assets/img/sustainability.jpg"); }
+
+.cp-alt { background: #f5f5f5; }
+.cp-h { margin: 0 0 var(--md); }
+.cp-lead { font-size: 18px; line-height: 1.6; max-width: 720px; margin: 0 0 var(--md); }
+.cp-note { margin: 0 0 var(--xl); padding: var(--md) var(--lg); border: 1px solid #000; background: #f5f5f5; font-size: 14px; line-height: 1.6; }
+.cp-split { display: grid; gap: var(--xl); }
+@media (min-width: 860px) { .cp-split { grid-template-columns: 1fr 1fr; gap: var(--xxl); } }
+.cp-top { align-items: start; }
+.cp-split p, .cp-card p { line-height: 1.7; color: var(--body-strong); }
+.cp-split a, .cp-cta a { color: #000; text-decoration: underline; }
+
+.cp-facts { margin: 0; display: grid; border-top: 1px solid #000; align-self: start; }
+.cp-facts div { display: flex; justify-content: space-between; gap: var(--md); padding: 14px 0; border-bottom: 1px solid var(--hairline); }
+.cp-facts dt { color: #777; font-size: 14px; }
+.cp-facts dd { margin: 0; font-weight: 700; text-align: right; }
+
+.cp-filter { margin-bottom: var(--lg); }
+.cp-news { list-style: none; margin: 0; padding: 0; border-top: 1px solid #000; }
+.cp-news li { display: grid; gap: 6px; padding: var(--lg) 0; border-bottom: 1px solid #ddd; }
+.cp-news li[hidden] { display: none; }
+@media (min-width: 760px) { .cp-news li { grid-template-columns: 130px 140px 1fr; column-gap: var(--lg); } .cp-news h3, .cp-news p { grid-column: 3; } .cp-news time, .cp-tag { grid-row: 1 / span 2; } }
+.cp-news time { font-size: 13px; color: #777; }
+.cp-tag { justify-self: start; align-self: start; padding: 2px 10px; background: #000; color: #fff; font-size: 12px; font-weight: 700; }
+.cp-news h3 { margin: 0; font-size: 20px; }
+.cp-news p { margin: 0; color: var(--body-strong); line-height: 1.6; }
+
+.cp-grid3 { display: grid; gap: var(--md); grid-template-columns: 1fr; }
+@media (min-width: 640px) { .cp-grid3 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .cp-grid3 { grid-template-columns: repeat(3, 1fr); } }
+.cp-card { padding: var(--xl); background: #fff; border: 1px solid var(--hairline); }
+.cp-card h3 { margin: 0 0 var(--sm); font-size: 20px; }
+.cp-card p { margin: 0 0 var(--sm); }
+.cp-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.cp-list li { position: relative; padding-left: 20px; line-height: 1.5; }
+.cp-list li::before { content: ""; position: absolute; left: 0; top: .6em; width: 8px; height: 2px; background: #000; }
+
+.cp-logo { display: grid; place-items: center; min-height: 110px; margin-bottom: var(--md); background: #f5f5f5; padding: var(--md); }
+.cp-logo img { max-width: 100%; max-height: 70px; }
+.cp-logo-text { font-family: var(--font-display); font-size: 36px; letter-spacing: .08em; }
+.cp-swatches { display: grid; gap: 8px; margin-bottom: var(--sm); }
+.cp-swatches span { display: flex; justify-content: space-between; align-items: center; padding: 14px var(--md); background: var(--c); color: #fff; font-size: 13px; border: 1px solid #000; }
+.cp-swatches span.is-light { color: #000; }
+
+/* form */
+.cp-form { display: grid; gap: var(--md); background: #fff; border: 1px solid var(--hairline); padding: var(--xl); }
+@media (max-width: 520px) { .cp-form { padding: var(--md); } }
+.cp-form[hidden], .cp-done[hidden] { display: none; }
+.cp-field { display: grid; gap: 6px; min-width: 0; }
+.cp-field label { font-size: 13px; font-weight: 700; }
+.cp-field label small { font-weight: 400; color: #777; }
+.cp-field input, .cp-field select, .cp-field textarea { width: 100%; min-height: 48px; padding: 12px var(--sm); border: 1px solid #000; background: #fff; font: inherit; border-radius: 0; }
+.cp-field textarea { resize: vertical; }
+.cp-field input:focus-visible, .cp-field select:focus-visible, .cp-field textarea:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+.cp-field .is-invalid { border-color: #c8102e; }
+.cp-err { margin: 0; font-size: 12.5px; color: #c8102e; }
+.cp-err:empty { display: none; }
+.cp-form .btn { justify-self: start; }
+.cp-done { display: grid; gap: var(--sm); justify-items: start; background: #fff; border: 1px solid var(--hairline); padding: var(--xl); }
+.cp-done h3 { margin: 0; font-size: 24px; }
+.cp-done p { margin: 0; line-height: 1.6; }
+
+/* sustainability */
+.cp-stats { display: grid; gap: var(--md); margin-top: var(--xl); grid-template-columns: 1fr; }
+@media (min-width: 700px) { .cp-stats { grid-template-columns: repeat(3, 1fr); } }
+.cp-stats div { padding: var(--xl); background: #000; color: #fff; display: grid; gap: 6px; }
+.cp-stats strong { font-family: var(--font-display); font-size: 56px; font-weight: 400; line-height: 1; }
+.cp-stats span { font-size: 14px; color: #ddd; }
+
+.cp-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--lg); }
+.cp-bar-h { display: flex; justify-content: space-between; gap: var(--md); margin-bottom: 8px; font-size: 15px; }
+.cp-bar { height: 10px; background: #e5e5e5; }
+.cp-bar i { display: block; height: 100%; width: 0; background: #000; transition: width 1.2s cubic-bezier(.2,.7,.2,1); }
+.cp-bars.is-in .cp-bar i, .no-io .cp-bar i { width: var(--w); }
+.cp-bars p { margin: 8px 0 0; font-size: 13px; color: #777; }
+
+.cp-steps { list-style: none; margin: 0 0 var(--xl); padding: 0; display: grid; gap: var(--md); grid-template-columns: 1fr; }
+@media (min-width: 640px) { .cp-steps { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .cp-steps { grid-template-columns: repeat(4, 1fr); } }
+.cp-steps li { padding: var(--lg); background: #fff; border: 1px solid #ddd; display: grid; gap: 6px; align-content: start; }
+.cp-steps span { display: grid; place-items: center; width: 34px; height: 34px; background: #000; color: #fff; font-weight: 700; }
+.cp-steps p { margin: 0; font-size: 14px; color: var(--body-strong); }
+.cp-cta { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) { .cp-bar i { transition: none; } }

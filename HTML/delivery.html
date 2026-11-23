@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delivery information – VELNERY</title>
+  <meta name="description" content="VELNERY delivery costs, delivery times, free delivery over R600 and how to track your order.">
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/auth.css">
+  <link rel="stylesheet" href="../CSS/address.css">
+  <link rel="stylesheet" href="../CSS/support.css">
+</head>
+<body data-root="../" data-page="delivery">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="display-lg">Delivery information</h1>
+        <p>Costs, delivery times and how to track your order.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="d-opts">
+      <div class="container">
+        <p class="sp-banner"><strong>Free standard delivery</strong> on all orders over R600.</p>
+        <h2 class="display-md sp-h" id="d-opts">Delivery options</h2>
+        <div class="sp-grid2">
+          <article class="sp-box"><h3>Standard delivery</h3><p class="sp-big">R60 <small>Free over R600</small></p><ul class="sp-ticks"><li>2 to 4 working days</li><li>Tracking by order number</li><li>Delivered Monday to Friday</li></ul></article>
+          <article class="sp-box"><h3>Express delivery</h3><p class="sp-big">R120</p><ul class="sp-ticks"><li>Next working day</li><li>Order before 12:00</li><li>Tracking by order number</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sp-alt" aria-labelledby="d-how">
+      <div class="container">
+        <h2 class="display-md sp-h" id="d-how">How it works</h2>
+        <ol class="sp-steps">
+          <li><span>1</span><strong>Order placed</strong><p>You get a confirmation with your order number.</p></li>
+          <li><span>2</span><strong>Packed</strong><p>We pick and pack your items with care.</p></li>
+          <li><span>3</span><strong>On its way</strong><p>Your order is handed to the courier.</p></li>
+          <li><span>4</span><strong>Delivered</strong><p>It arrives at your door. Enjoy!</p></li>
+        </ol>
+        <p><a class="btn" href="account.html#orders">Track an order</a></p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="d-calc">
+      <div class="container sp-grid2">
+        <div>
+          <h2 class="display-md sp-h" id="d-calc">Check your delivery cost</h2>
+          <p class="muted">Enter your basket total to see what standard delivery will cost.</p>
+          <form class="sp-calc" id="calc-form" novalidate>
+            <label class="sr-only" for="calc-amt">Basket total in rand</label>
+            <input id="calc-amt" type="text" inputmode="decimal" placeholder="e.g. 450" autocomplete="off">
+            <button class="btn" type="submit">Check</button>
+          </form>
+          <p class="sp-result" id="calc-out" role="status"></p>
+        </div>
+        <div>
+          <h2 class="display-md sp-h">Delivery times by area</h2>
+          <table class="sp-table">
+            <thead><tr><th scope="col">Area</th><th scope="col">Standard</th><th scope="col">Express</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Major cities (Gauteng, Western Cape, KwaZulu-Natal)</th><td>2&ndash;3 working days</td><td>Next working day</td></tr>
+              <tr><th scope="row">Other cities and towns</th><td>3&ndash;4 working days</td><td>1&ndash;2 working days</td></tr>
+              <tr><th scope="row">Remote and rural areas</th><td>4&ndash;6 working days</td><td>Not available</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sp-alt" aria-labelledby="d-faq">
+      <div class="container sp-narrow">
+        <h2 class="display-md sp-h" id="d-faq">Delivery questions</h2>
+        <div class="sp-list">
+          <details class="sp-q"><summary>What if I'm not home?</summary><p>The courier will try twice. Add instructions at checkout, like leaving your order with security or a neighbour.</p></details>
+          <details class="sp-q"><summary>Can I change my delivery address after ordering?</summary><p>Contact us within an hour of placing your order and we'll do our best to update it before it is packed.</p></details>
+          <details class="sp-q"><summary>Do you deliver on public holidays?</summary><p>No. Deliveries happen on working days only, so a public holiday adds one day to your delivery time.</p></details>
+        </div>
+        <p><a href="faq.html">See all FAQs &rarr;</a></p>
+      </div>
+    </section>
+
+    <section class="section sp-help" aria-labelledby="help-t">
+      <div class="container">
+        <h2 class="display-md" id="help-t">Still need help?</h2>
+        <ul class="sp-cards">
+          <li><a href="contact.html"><strong>Contact us</strong><span>Mon&ndash;Fri 8:00&ndash;18:00, Sat 9:00&ndash;14:00</span></a></li>
+          <li><a href="faq.html"><strong>FAQs</strong><span>Quick answers to common questions</span></a></li>
+          <li><a href="delivery.html"><strong>Delivery info</strong><span>Costs, times and tracking</span></a></li>
+          <li><a href="returns.html"><strong>Returns &amp; refunds</strong><span>Easy returns within 30 days</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../JavaScript/main.js"></script>
+  <script src="../JavaScript/auth.js"></script>
+  <script src="../JavaScript/address.js"></script>
+  <script src="../JavaScript/support.js"></script>
+</body>
+</html>

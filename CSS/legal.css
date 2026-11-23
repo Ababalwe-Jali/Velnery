@@ -1,0 +1,59 @@
+/* VELNERY legal pages (Privacy, Terms, Cookies). Load after styles.css. */
+body[data-page="privacy"] .page-hero { background-image: url("../Assets/img/privacy.jpg"); }
+body[data-page="terms"] .page-hero { background-image: url("../Assets/img/terms.jpg"); }
+body[data-page="cookies"] .page-hero { background-image: url("../Assets/img/cookie-policy.jpg"); }
+
+.lg-layout { display: grid; gap: var(--xl); align-items: start; }
+@media (min-width: 960px) { .lg-layout { grid-template-columns: 260px minmax(0, 1fr); gap: var(--xxl); } }
+
+.lg-toc { border-top: 1px solid #000; }
+@media (min-width: 960px) { .lg-toc { position: sticky; top: 160px; } }
+.lg-toc-h { margin: var(--md) 0 var(--xs); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #777; }
+.lg-toc ol { list-style: none; margin: 0; padding: 0; counter-reset: t; }
+.lg-toc li { counter-increment: t; }
+.lg-toc ol a { display: block; padding: 9px 0 9px 12px; border-left: 2px solid transparent; font-size: 14px; color: var(--body-strong); text-decoration: none; }
+.lg-toc ol a::before { content: counter(t) ". "; color: #999; }
+.lg-toc ol a:hover { color: #000; }
+.lg-toc ol a.is-current { color: #000; font-weight: 700; border-left-color: #000; }
+@media (max-width: 959px) {
+  .lg-toc ol { display: flex; overflow-x: auto; border-bottom: 1px solid var(--hairline); }
+  .lg-toc ol a { white-space: nowrap; padding: 12px var(--sm); border-left: 0; border-bottom: 3px solid transparent; }
+  .lg-toc ol a.is-current { border-bottom-color: #000; }
+}
+.lg-toc-links { display: grid; margin-top: var(--lg); border-top: 1px solid var(--hairline); }
+.lg-toc-links a { padding: 12px 0; border-bottom: 1px solid var(--hairline); font-size: 14px; font-weight: 700; color: #000; text-decoration: none; }
+.lg-toc-links a:hover { text-decoration: underline; }
+.lg-toc-links a[aria-current="page"] { color: #777; pointer-events: none; }
+
+.lg-doc { min-width: 0; max-width: 780px; }
+.lg-meta { margin: 0 0 var(--md); font-size: 13px; color: #777; }
+.lg-print { background: none; border: 0; padding: 0; font: inherit; color: #000; text-decoration: underline; cursor: pointer; }
+.lg-note { margin: 0 0 var(--xl); padding: var(--md) var(--lg); border: 1px solid #000; background: #f5f5f5; font-size: 14px; line-height: 1.6; }
+.lg-sec { padding: var(--lg) 0; border-top: 1px solid var(--hairline); scroll-margin-top: 150px; }
+.lg-sec h2 { margin: 0 0 var(--sm); font-size: 24px; }
+.lg-sec p, .lg-sec li { line-height: 1.7; color: var(--body-strong); }
+.lg-sec p { margin: 0 0 var(--sm); }
+.lg-sec ul { margin: 0 0 var(--sm); padding-left: 20px; display: grid; gap: 6px; }
+.lg-sec a, .lg-contact a { color: #000; text-decoration: underline; }
+.lg-contact { margin: var(--lg) 0 0; padding-top: var(--lg); border-top: 1px solid #000; }
+
+.lg-table-wrap { overflow-x: auto; }
+.lg-table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px; }
+.lg-table th, .lg-table td { padding: 12px var(--sm); text-align: left; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+.lg-table thead th { border-bottom: 1px solid #000; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.lg-table tbody th { font-weight: 400; }
+.lg-table code { font-size: 12.5px; background: #f0f0f0; padding: 2px 6px; overflow-wrap: anywhere; }
+
+.lg-prefs { display: grid; gap: var(--sm); }
+.lg-pref { display: flex; gap: var(--md); align-items: flex-start; padding: var(--md); border: 1px solid var(--hairline); background: #fff; cursor: pointer; }
+.lg-pref input { width: 20px; height: 20px; margin-top: 2px; accent-color: #000; flex: none; }
+.lg-pref span { display: grid; gap: 2px; }
+.lg-pref small { font-size: 13px; color: #777; }
+.lg-row { display: flex; flex-wrap: wrap; gap: var(--sm); margin-top: var(--xs); }
+.lg-ok { margin: 0; font-size: 14px; color: #1b6e2d; }
+.lg-ok:empty { display: none; }
+
+@media print {
+  #site-header, #site-footer, .lg-toc, .lg-print, .page-hero, .lg-prefs { display: none !important; }
+  .lg-layout { display: block; }
+}
