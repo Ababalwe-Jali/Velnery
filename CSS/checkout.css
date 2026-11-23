@@ -51,9 +51,9 @@
 .co-opt-price { font-weight: 700; }
 /* Payment logos: white chip so every logo colour shows clearly */
 .co-logos { display: flex; align-items: center; gap: 8px; margin-left: auto; flex: none; }
-.co-logos img { height: 22px; width: auto; max-width: 64px; object-fit: contain; padding: 4px 8px; box-sizing: content-box; background: #fff; border: 1px solid var(--hairline); }
+.co-logos img { height: 26px; width: auto; max-width: 64px; object-fit: contain; padding: 4px 8px; box-sizing: content-box; background: #fff; border: 1px solid var(--hairline); }
 .co-logos-icon svg { width: 30px; height: 30px; fill: none; stroke: #000; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-@media (max-width: 420px) { .co-logos img { height: 18px; padding: 3px 6px; } }
+@media (max-width: 420px) { .co-logos img { height: 20px; padding: 3px 6px; } }
 .co-pane { display: grid; gap: var(--md); margin: 0; padding-top: var(--xs); color: var(--body-strong); }
 .co-pane[hidden] { display: none; }
 .co-demo { margin: 0; padding: var(--sm) var(--md); background: #FFFF00; color: #000; font-size: 13px; }
@@ -113,3 +113,5 @@
 .oc-demo { text-align: center; }
 
 @media (prefers-reduced-motion: reduce) { .oc-tick, .co-place.is-busy span::after { animation: none; } .co-option, .co-place { transition: none; } }
+
+.co-logos img[hidden] { display: none; }
