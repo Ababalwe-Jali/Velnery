@@ -24,8 +24,8 @@
 .ab-split { display: grid; gap: var(--xxl); align-items: center; }
 @media (min-width: 900px) { .ab-split { grid-template-columns: 1fr 1fr; gap: 72px; } .ab-split-rev .ab-photo { order: 2; } }
 .ab-photo { aspect-ratio: 4 / 5; background: #888 center / cover no-repeat; }
-.ab-photo-story { background-image: url("https://images.unsplash.com/photo-1760565030786-91526dff426c?auto=format&fit=crop&w=1000&q=80"); }
-.ab-photo-care  { background-image: url("https://images.unsplash.com/photo-1591586116988-62fe65164f8d?auto=format&fit=crop&w=1000&q=80"); }
+.ab-photo-story { background-image: url("../Assets/img/about1.jpg"); }
+.ab-photo-care  { background-image: url("../Assets/img/about2.jpg"); }
 .ab-copy .display-md { margin-bottom: var(--md); }
 .ab-copy p { margin: 0 0 var(--md); max-width: 52ch; }
 .ab-story-alt { background: #F5F5F5; }
@@ -64,10 +64,10 @@
 .ab-dept:hover::before { background: linear-gradient(rgba(0,0,0,.1) 0%, rgba(0,0,0,.8) 100%); }
 .ab-dept span { position: relative; font-family: var(--font-display); font-size: 26px; }
 .ab-dept span::after { content: " →"; }
-.ab-dept-food     { background-image: url("https://images.unsplash.com/photo-1591586116988-62fe65164f8d?auto=format&fit=crop&w=700&q=80"); }
-.ab-dept-clothing { background-image: url("https://images.unsplash.com/photo-1603400521630-9f2de124b33b?auto=format&fit=crop&w=700&q=80"); }
-.ab-dept-home     { background-image: url("https://images.unsplash.com/photo-1774927475366-7c4d31588d98?auto=format&fit=crop&w=700&q=80"); }
-.ab-dept-beauty   { background-image: url("https://images.unsplash.com/photo-1762651356493-c492ca111a07?auto=format&fit=crop&w=700&q=80"); }
+.ab-dept-food     { background-image: url("../Assets/img/food.jpg"); }
+.ab-dept-clothing { background-image: url("../Assets/img/clothing.jpg"); }
+.ab-dept-home     { background-image: url("../Assets/img/home.webp"); }
+.ab-dept-beauty   { background-image: url("../Assets/img/beauty.jpg"); }
 
 /* Help cards */
 .ab-help-grid { display: grid; gap: var(--md); }
