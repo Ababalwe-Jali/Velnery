@@ -1,5 +1,5 @@
 /* VELNERY wishlist page. Load after styles.css. */
-body[data-page="wishlist"] .page-hero { background-image: url("https://images.unsplash.com/photo-1760565030786-91526dff426c?auto=format&fit=crop&w=1800&q=80"); }
+body[data-page="wishlist"] .page-hero { background-image: url("../Assets/img/wishlist.jpg"); }
 
 .wl-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--md); margin-bottom: var(--xl); padding-bottom: var(--md); border-bottom: 1px solid var(--hairline); }
 .wl-bar[hidden], .wl-empty[hidden], .wl-more[hidden] { display: none; }

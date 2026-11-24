@@ -13,7 +13,7 @@
 
   var PAGES = [
     { id: "home",   label: "Home",     href: root + "index.html" },
-    { id: "shop",   label: "Shop",     href: root + "HTML/shop.html" },
+    { id: "shop",   label: "Shop by category",     href: root + "HTML/shop.html" },
     { id: "deals",  label: "Deals",    href: root + "HTML/deals.html" },
     { id: "stores", label: "Stores",   href: root + "HTML/stores.html" },
     { id: "about",  label: "About us", href: root + "HTML/about.html" },
@@ -246,11 +246,11 @@
   // Payment logos live in Assets/icon. Rename the files here to match yours (svg, png, webp all work).
   // Leave logo as null to show the plain text label instead.
   var PAYMENTS = [
-    { name: "Visa",       logo: "Assets/icon/visa.svg" },
-    { name: "Mastercard", logo: "Assets/icon/mastercard.svg" },
-    { name: "Payflex",    logo: "Assets/icon/payflex.svg" },
-    { name: "EFT",        logo: null },
-    { name: "Gift card",  logo: null }
+    { name: "Visa",       logo: "Assets/icon/visa.png" },
+    { name: "Mastercard", logo: "Assets/icon/mastercard.webp" },
+    { name: "Payflex",    logo: "Assets/icon/payflex.png" },
+    { name: "EFT",        logo: "Assets/icon/mobicred.png" },
+    { name: "Gift card",  logo: "Assets/icon/TFG.png" },
   ];
 
   function paymentList() {
